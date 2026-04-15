@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TherapyNow</title>
-  <link rel="icon" type="image/jpeg" href="image\therapynow_logo.jpg">
+  <link rel="icon" type="image/jpeg" href="image/therapynow_logo.jpg">
   <meta name="description" content="Professional therapeutic massage and bodywork center. Elevate your wellness and recovery.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
   
-  <script src="tailwind.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <script>
@@ -35,18 +35,18 @@
             current: 'currentColor',
           },
           animation: {
-            'marquee': 'marquee 25s linear infinite',
             'spin-slow': 'spin 12s linear infinite',
             'float': 'float 6s ease-in-out infinite',
+            'fade-in': 'fadeInUp 0.8s ease-out',
           },
           keyframes: {
-            marquee: {
-              '0%': { transform: 'translateX(0%)' },
-              '100%': { transform: 'translateX(-50%)' }
-            },
             float: {
               '0%, 100%': { transform: 'translateY(0)' },
               '50%': { transform: 'translateY(-10px)' }
+            },
+            fadeInUp: {
+              'from': { opacity: '0', transform: 'translateY(30px)' },
+              'to': { opacity: '1', transform: 'translateY(0)' }
             }
           }
         }
@@ -225,87 +225,39 @@
     </div>
   </div>
 
-  <main class="flex-grow pt-32 pb-20 relative overflow-hidden">
-    
-    <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-sand/60 dark:bg-gold/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 pointer-events-none"></div>
+  <main class="flex-grow flex flex-col">
 
-    <div class="max-w-[1400px] mx-auto px-6 lg:px-8 relative z-10 mb-20">
-      <div class="grid lg:grid-cols-12 gap-12 items-center">
+    <section class="min-h-screen flex items-center justify-center text-white relative overflow-hidden bg-cover bg-center bg-no-repeat w-full" style="background-image: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');">
+      
+      <div class="absolute inset-0 bg-black/60 z-0"></div>
+
+      <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-gold/20 rounded-full blur-[100px] z-0 pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 w-[800px] h-[800px] bg-sand/20 rounded-full blur-[100px] z-0 pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center animate-fade-in w-full pt-32">
+        <div class="inline-flex items-center justify-center space-x-3 mb-6">
+          <div class="h-px w-12 bg-gold"></div>
+          <span class="text-xs font-[600] uppercase tracking-[0.3em] text-gold drop-shadow-md">Wellness Redefined</span>
+          <div class="h-px w-12 bg-gold"></div>
+        </div>
         
-        <div class="lg:col-span-7 space-y-8">
-          <div class="inline-flex items-center space-x-3">
-            <div class="h-px w-12 bg-gold"></div>
-            <span class="text-xs font-[600] uppercase tracking-[0.3em] text-gold">Wellness Redefined</span>
-          </div>
-          
-          <h1 class="font-display font-[600] text-6xl md:text-7xl lg:text-[6.5rem] leading-[0.9] uppercase tracking-tighter z-20 relative text-dark-gray dark:text-white">
-            Discover <br>
-            True <br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold to-[#80CBC4] inline-block transform hover:scale-[1.02] transition-transform cursor-default">Serenity.</span>
-          </h1>
+        <h1 class="font-display font-[600] text-5xl md:text-7xl lg:text-[6.5rem] leading-[1] uppercase tracking-tighter text-white drop-shadow-xl mb-6">
+          Discover True <br class="hidden md:block">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold to-[#80CBC4] inline-block transform hover:scale-[1.02] transition-transform cursor-default filter drop-shadow-lg">Serenity.</span>
+        </h1>
 
-          <p class="text-lg md:text-xl font-medium max-w-lg opacity-80 leading-relaxed border-l-2 border-dark-gray/30 dark:border-white/30 pl-6 ml-2 text-dark-gray/80 dark:text-white/80">
-            Melt away tension and restore your body’s natural balance with our elite therapeutic massage and advanced bodywork techniques.
-          </p>
+        <p class="text-lg md:text-2xl font-medium max-w-2xl mx-auto leading-relaxed text-white drop-shadow-md mb-10">
+          Melt away tension and restore your body’s natural balance with our elite therapeutic massage and advanced bodywork techniques.
+        </p>
 
-          <div class="pt-8 flex flex-wrap gap-4 items-center">
-            <a href="booking.html" class="group relative inline-flex items-center justify-center px-10 py-5 bg-dark-gray dark:bg-white text-white dark:text-dark-gray font-[600] uppercase tracking-widest text-xs rounded-full overflow-hidden transition-all">
-              <div class="absolute inset-0 bg-gold transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out"></div>
-              <span class="relative z-10 group-hover:text-white transition-colors">Book A Massage</span>
-              <i class="fas fa-arrow-right ml-3 relative z-10 group-hover:text-white transition-colors group-hover:translate-x-1"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="lg:col-span-5 relative mt-12 lg:mt-0">
-          <div class="absolute -top-10 -left-10 z-30 w-32 h-32 hidden md:flex items-center justify-center">
-            <div class="absolute inset-0 rounded-full bg-gold/10 backdrop-blur-sm border border-gold/30"></div>
-            <i class="fas fa-star text-gold text-xl"></i>
-            <div class="text-circle animate-spin-slow text-[10px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white">
-              <span style="transform: rotate(0deg)">E</span><span style="transform: rotate(15deg)">S</span><span style="transform: rotate(30deg)">T</span><span style="transform: rotate(45deg)">.</span>
-              <span style="transform: rotate(75deg)">2</span><span style="transform: rotate(90deg)">0</span><span style="transform: rotate(105deg)">2</span><span style="transform: rotate(120deg)">6</span>
-              <span style="transform: rotate(150deg)">•</span>
-              <span style="transform: rotate(180deg)">T</span><span style="transform: rotate(195deg)">H</span><span style="transform: rotate(210deg)">E</span><span style="transform: rotate(225deg)">R</span><span style="transform: rotate(240deg)">A</span>
-              <span style="transform: rotate(255deg)">P</span><span style="transform: rotate(270deg)">Y</span><span style="transform: rotate(285deg)">N</span><span style="transform: rotate(300deg)">O</span><span style="transform: rotate(315deg)">W</span>
-            </div>
-          </div>
-
-          <div class="relative w-full aspect-[4/5] rounded-[40px] overflow-hidden group shadow-2xl bg-sand dark:bg-black">
-            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Relaxing Massage Therapy" class="w-full h-full object-cover premium-hover-img">
-            <div class="absolute inset-0 bg-gradient-to-t from-dark-gray/60 to-transparent opacity-60"></div>
-          </div>
+        <div class="flex flex-wrap gap-4 items-center justify-center">
+          <a href="booking.html" class="group relative inline-flex items-center justify-center px-10 py-5 bg-gold text-white font-[600] uppercase tracking-widest text-xs rounded-full overflow-hidden transition-all hover:bg-gold-hover shadow-xl hover:shadow-[0_0_20px_rgba(38,166,154,0.4)] transform hover:-translate-y-1">
+            <span class="relative z-10 transition-colors">Book A Massage</span>
+            <i class="fas fa-arrow-right ml-3 relative z-10 transition-colors group-hover:translate-x-1"></i>
+          </a>
         </div>
       </div>
-    </div>
-
-    <div class="relative w-full overflow-hidden bg-gold text-white py-5 transform -rotate-1 scale-105 shadow-xl border-y border-white/20">
-      <div class="flex whitespace-nowrap animate-marquee">
-        <div class="font-display font-[600] uppercase tracking-widest text-sm md:text-lg flex items-center shrink-0">
-          <span class="mx-6">✦ Deep Tissue Therapy</span>
-          <span class="mx-6 text-white/50">✦</span>
-          <span class="mx-6">Sports Recovery</span>
-          <span class="mx-6 text-white/50">✦</span>
-          <span class="mx-6">Hot Stone Massage</span>
-          <span class="mx-6 text-white/50">✦</span>
-          <span class="mx-6">Myofascial Release</span>
-          <span class="mx-6 text-white/50">✦</span>
-          <span class="mx-6">Aromatherapy</span>
-          <span class="mx-6 text-white/50">✦</span>
-        </div>
-        <div class="font-display font-[600] uppercase tracking-widest text-sm md:text-lg flex items-center shrink-0">
-          <span class="mx-6">✦ Deep Tissue Therapy</span>
-          <span class="mx-6 text-white/50">✦</span>
-          <span class="mx-6">Sports Recovery</span>
-          <span class="mx-6 text-white/50">✦</span>
-          <span class="mx-6">Hot Stone Massage</span>
-          <span class="mx-6 text-white/50">✦</span>
-          <span class="mx-6">Myofascial Release</span>
-          <span class="mx-6 text-white/50">✦</span>
-          <span class="mx-6">Aromatherapy</span>
-          <span class="mx-6 text-white/50">✦</span>
-        </div>
-      </div>
-    </div>
+    </section>
 
     <section class="py-24 relative z-10 bg-off-white dark:bg-deep-bg">
       <div class="max-w-[1400px] mx-auto px-6 lg:px-8">
@@ -585,6 +537,7 @@
         </div>
       </div>
     </section>
+
     <section class="py-24 relative overflow-hidden">
       <div class="absolute inset-0 bg-dark-gray dark:bg-black"></div>
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold/10 rounded-full blur-[100px] pointer-events-none"></div>
