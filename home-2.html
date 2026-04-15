@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TherapyNow - Premium Massage & Bodywork</title>
+  <link rel="icon" type="image/jpeg" href="image\therapynow_logo.jpg">
+  <meta name="description" content="Expert therapeutic massage and bodywork tailored to your lifestyle and recovery needs.">
+  <script src="tailwind.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Syne:wght@400;600&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = { 
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['Syne', 'sans-serif'],
+          },
+          colors: {
+            gold: '#26A69A',         // Mint Fresh
+            'gold-hover': '#111111', // Dark Gray/Black
+            'dark-gray': '#171717',  // Neutral Dark Gray
+            sand: '#80CBC4',         // Light Mint
+            white: '#FFFFFF',        // Pure White
+            'off-white': '#E0F2F1',  // Mint Ice
+            'deep-bg': '#000000',    // Pure Black for dark mode
+            black: '#000000',        // True Dark
+            transparent: 'transparent',
+            current: 'currentColor',
+          },
+          animation: {
+            'fade-in': 'fadeInUp 0.8s ease-out',
+            'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeInUp: {
+              'from': { opacity: '0', transform: 'translateY(30px)' },
+              'to': { opacity: '1', transform: 'translateY(0)' }
+            },
+            'pulse-slow': {
+              '0%, 100%': { opacity: '1' },
+              '50%': { opacity: '0.7' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    [dir="rtl"] { direction: rtl; }
+    body { overflow-x: hidden; }
+    
+    .glass-nav {
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+    
+    .premium-hover-img {
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .group:hover .premium-hover-img {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased transition-colors duration-500 bg-white dark:bg-deep-bg flex flex-col min-h-screen">
+
+  <div class="fixed w-full top-6 z-50 px-4 pointer-events-none flex justify-center">
+    <nav class="pointer-events-auto bg-white/90 dark:bg-black/90 backdrop-blur-xl glass-nav rounded-full px-4 lg:px-6 py-2 transition-all duration-300 w-full max-w-[1300px] flex justify-between items-center relative">
+      
+      <div class="flex-shrink-0">
+        <a href="index.html" class="group flex items-center">
+          <span class="font-display font-[600] text-xl xl:text-2xl tracking-tight uppercase text-dark-gray dark:text-white">
+            Therapy<span class="text-gold">Now.</span>
+          </span>
+        </a>
+      </div>
+
+      <div class="hidden xl:flex flex-1 justify-center items-center space-x-1 px-2">
+        
+        <div class="relative group">
+          <button class="px-2 py-2 text-[11px] font-[600] uppercase tracking-widest text-gold transition-colors flex items-center whitespace-nowrap">
+            Home <i class="fas fa-angle-down ml-1 text-[9px]"></i>
+          </button>
+          <div class="absolute top-full mt-4 left-0 w-48 bg-white dark:bg-[#111111] rounded-2xl shadow-2xl border border-gray-100 dark:border-white/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 overflow-hidden">
+            <a href="index.html" class="block px-6 py-4 text-xs font-[600] uppercase tracking-wider hover:bg-sand/20 hover:text-gold text-dark-gray dark:text-white transition-colors">HOME PAGE 01</a>
+            <a href="home-2.html" class="block px-6 py-4 text-xs font-[600] uppercase tracking-wider bg-sand/10 text-gold transition-colors">HOME PAGE 02</a>
+          </div>
+        </div>
+
+        <a href="about.html" class="px-2 py-2 text-[11px] font-[600] uppercase tracking-widest hover:text-gold text-dark-gray dark:text-white transition-colors whitespace-nowrap">About</a>
+        <a href="services.html" class="px-2 py-2 text-[11px] font-[600] uppercase tracking-widest hover:text-gold text-dark-gray dark:text-white transition-colors whitespace-nowrap">Services</a>
+        <a href="pricing.html" class="px-2 py-2 text-[11px] font-[600] uppercase tracking-widest hover:text-gold text-dark-gray dark:text-white transition-colors whitespace-nowrap">Pricing</a>
+        <a href="treatments.html" class="px-2 py-2 text-[11px] font-[600] uppercase tracking-widest hover:text-gold text-dark-gray dark:text-white transition-colors whitespace-nowrap">Treatments</a>
+        <a href="contact.html" class="px-2 py-2 text-[11px] font-[600] uppercase tracking-widest hover:text-gold text-dark-gray dark:text-white transition-colors whitespace-nowrap">Contact</a>
+        
+        <div class="relative group">
+          <button class="px-2 py-2 text-[11px] font-[600] uppercase tracking-widest hover:text-gold text-dark-gray dark:text-white transition-colors flex items-center whitespace-nowrap">
+            Dashboard <i class="fas fa-angle-down ml-1 text-[9px]"></i>
+          </button>
+          <div class="absolute top-full mt-4 right-0 w-56 bg-white dark:bg-[#111111] rounded-2xl shadow-2xl border border-gray-100 dark:border-white/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 overflow-hidden">
+            <a href="admin-dashboard.html" class="flex items-center px-6 py-4 text-xs font-[600] uppercase tracking-wider hover:bg-sand/20 hover:text-gold text-dark-gray dark:text-white transition-colors">
+              <i class="fas fa-user-shield w-5 text-gold/70"></i> Admin Dashboard
+            </a>
+            <a href="user-dashboard.html" class="flex items-center px-6 py-4 text-xs font-[600] uppercase tracking-wider hover:bg-sand/20 hover:text-gold text-dark-gray dark:text-white transition-colors border-t border-gray-50 dark:border-white/5">
+              <i class="fas fa-user w-5 text-gold/70"></i> User Dashboard
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden xl:flex flex-shrink-0 items-center space-x-2">
+        
+        <div class="flex items-center space-x-1">
+          <button type="button" onclick="window.location.href='login.html'" class="text-[11px] font-[600] uppercase tracking-widest hover:text-gold text-dark-gray dark:text-white px-3 py-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-all duration-300 whitespace-nowrap">
+            Login
+          </button>
+          <a href="register.html" class="bg-gold text-white hover:bg-gold-hover px-4 py-2 rounded-full text-[10px] font-[600] uppercase tracking-widest transition-all duration-300 flex items-center shadow-md whitespace-nowrap">
+            <span>Register</span>
+            <i class="fas fa-arrow-right text-[8px] ml-1.5"></i>
+          </a>
+        </div>
+
+        <div class="w-px h-5 bg-gray-300 dark:bg-gray-600 mx-1"></div>
+
+        <div class="flex items-center space-x-1">
+          <button id="theme-toggle" class="w-8 h-8 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 flex items-center justify-center transition-colors text-gray-500 hover:text-gold">
+            <i class="fas fa-moon dark:hidden text-[13px]"></i>
+            <i class="fas fa-sun hidden dark:inline text-[13px]"></i>
+          </button>
+          <button id="rtl-toggle" class="text-[9px] font-[600] uppercase tracking-widest px-1 text-gray-500 hover:text-gold">RTL</button>
+        </div>
+      </div>
+
+      <div class="xl:hidden flex items-center">
+        <button id="mobile-menu-button" class="w-10 h-10 bg-gray-100 dark:bg-white/10 rounded-full flex items-center justify-center text-dark-gray dark:text-white">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path>
+            <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <div id="mobile-menu" class="hidden xl:hidden fixed inset-0 z-40 bg-white/95 dark:bg-black/95 backdrop-blur-3xl pt-32 pb-10 px-6 overflow-y-auto">
+    <div class="flex flex-col h-full justify-between max-w-sm mx-auto">
+      <div class="space-y-4 text-dark-gray dark:text-white">
+        
+        <div>
+          <button id="mobile-home-dropdown" class="w-full flex items-center justify-between py-2 text-2xl font-display font-[600] text-gold uppercase tracking-wide">
+            <span>Home</span>
+            <i class="fas fa-plus text-base text-gold" id="mobile-home-icon"></i>
+          </button>
+          <div id="mobile-home-menu" class="hidden pt-3 pb-2 space-y-3 pl-4 border-l-2 border-gold">
+            <a href="index.html" class="block text-base font-[600] opacity-70 hover:opacity-100 hover:text-gold uppercase tracking-wider">01. Home Page</a>
+            <a href="home-2.html" class="block text-base font-[600] opacity-100 text-gold uppercase tracking-wider">02. Home Page</a>
+          </div>
+        </div>
+
+        <a href="about.html" class="block py-2 text-2xl font-display font-[600] uppercase tracking-wide hover:text-gold">About</a>
+        <a href="services.html" class="block py-2 text-2xl font-display font-[600] uppercase tracking-wide hover:text-gold">Services</a>
+        <a href="pricing.html" class="block py-2 text-2xl font-display font-[600] uppercase tracking-wide hover:text-gold">Pricing</a>
+        <a href="treatments.html" class="block py-2 text-2xl font-display font-[600] uppercase tracking-wide hover:text-gold">Treatments</a>
+        <a href="contact.html" class="block py-2 text-2xl font-display font-[600] uppercase tracking-wide hover:text-gold">Contact</a>
+        
+        <div>
+          <button id="mobile-dashboard-dropdown" class="w-full flex items-center justify-between py-2 text-2xl font-display font-[600] uppercase tracking-wide">
+            <span>Dashboard</span>
+            <i class="fas fa-plus text-base text-gold" id="mobile-dashboard-icon"></i>
+          </button>
+          <div id="mobile-dashboard-menu" class="hidden pt-3 pb-2 space-y-4 pl-4 border-l-2 border-gold mt-2">
+            <a href="admin-dashboard.html" class="flex items-center text-base font-[600] opacity-70 hover:opacity-100 hover:text-gold uppercase tracking-wider">
+              <i class="fas fa-user-shield w-6 text-gold"></i> Admin
+            </a>
+            <a href="user-dashboard.html" class="flex items-center text-base font-[600] opacity-70 hover:opacity-100 hover:text-gold uppercase tracking-wider">
+              <i class="fas fa-user w-6 text-gold"></i> User
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 space-y-3">
+        <button type="button" onclick="window.location.href='login.html'" class="flex items-center justify-center w-full bg-gray-100 dark:bg-white/5 text-dark-gray dark:text-white px-4 py-4 rounded-full font-[600] uppercase tracking-widest text-xs">
+          Login
+        </button>
+        <a href="register.html" class="flex items-center justify-center w-full bg-gold text-white px-4 py-4 rounded-full font-[600] uppercase tracking-widest text-xs space-x-2">
+          <span>Register</span>
+          <i class="fas fa-arrow-right text-[10px]"></i>
+        </a>
+        
+        <div class="flex justify-center space-x-6 pt-8 pb-12">
+          <button id="mobile-theme-toggle" class="text-dark-gray dark:text-white opacity-70 hover:opacity-100 hover:text-gold text-xs font-[600] uppercase tracking-widest flex items-center">
+            <i class="fas fa-moon mr-2 dark:hidden"></i><i class="fas fa-sun mr-2 hidden dark:inline"></i> Theme
+          </button>
+          <div class="w-px h-4 bg-gray-300 dark:bg-gray-700"></div>
+          <button id="mobile-rtl-toggle" class="text-dark-gray dark:text-white opacity-70 hover:opacity-100 hover:text-gold text-xs font-[600] uppercase tracking-widest flex items-center">
+            <i class="fas fa-language mr-2"></i> RTL
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="flex-grow flex flex-col">
+    <section id="home-2" class="relative flex-grow min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-12">
+      <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Spa and Wellness Background" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/85 dark:bg-black/95"></div>
+      </div>
+
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/20 rounded-full blur-3xl animate-pulse-slow z-0"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sand/20 rounded-full blur-3xl animate-pulse-slow z-0" style="animation-delay: 1.5s;"></div>
+
+      <div class="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in">
+        
+        <div class="inline-flex items-center px-5 py-2 mb-8 bg-white/5 backdrop-blur-md border border-gold/30 rounded-none">
+          <i class="fas fa-star text-gold text-[10px] mr-3"></i>
+          <span class="text-[10px] font-[600] tracking-[0.2em] text-sand uppercase">Voted #1 Premium Bodywork Center</span>
+        </div>
+
+        <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-[600] text-white mb-6 leading-tight tracking-tight uppercase">
+          Discover the <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold to-[#80CBC4]">True Balance</span> <br class="hidden md:block"/> of Your Body.
+        </h1>
+
+        <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
+          Stop living with tension. Our clinical massage therapists are here to restore your mobility, relieve chronic pain, and elevate your overall well-being.
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-5 pt-4">
+          <a href="services.html" class="inline-flex items-center justify-center px-8 py-4 bg-gold hover:bg-gold-hover text-white font-[600] uppercase tracking-widest text-xs transition-all duration-300 rounded-full shadow-[0_0_20px_rgba(38,166,154,0.4)]">
+            Explore Treatments
+          </a>
+          <a href="therapists.html" class="inline-flex items-center justify-center px-8 py-4 bg-transparent border border-white/50 hover:bg-white hover:text-dark-gray text-white font-[600] uppercase tracking-widest text-xs transition-all duration-300 rounded-full">
+            Meet The Therapists
+          </a>
+        </div>
+
+        <div class="mt-20 pt-10 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div>
+            <h4 class="font-display text-4xl font-[600] text-gold mb-2">10k+</h4>
+            <p class="text-[10px] text-gray-400 font-[600] uppercase tracking-widest">Happy Clients</p>
+          </div>
+          <div>
+            <h4 class="font-display text-4xl font-[600] text-gold mb-2">25+</h4>
+            <p class="text-[10px] text-gray-400 font-[600] uppercase tracking-widest">Expert Therapists</p>
+          </div>
+          <div>
+            <h4 class="font-display text-4xl font-[600] text-gold mb-2">4.9/5</h4>
+            <p class="text-[10px] text-gray-400 font-[600] uppercase tracking-widest">Average Rating</p>
+          </div>
+          <div>
+            <h4 class="font-display text-4xl font-[600] text-gold mb-2">100%</h4>
+            <p class="text-[10px] text-gray-400 font-[600] uppercase tracking-widest">Tension Relief</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="py-24 bg-white dark:bg-deep-bg relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
+          <span class="text-gold text-[10px] font-[600] tracking-[0.2em] uppercase mb-4 block">Our Expertise</span>
+          <h2 class="font-display text-4xl md:text-5xl font-[600] text-dark-gray dark:text-white mb-6 uppercase tracking-tight">
+            Signature <span class="italic text-gray-400 dark:text-gray-500">Therapies</span>
+          </h2>
+          <p class="text-gray-500 dark:text-gray-400 font-medium">Discover our curated selection of specialized bodywork treatments designed to melt away tension and restore your natural balance.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <div class="group relative bg-off-white dark:bg-[#111111] rounded-2xl overflow-hidden border border-gray-100 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full">
+            <div class="relative h-64 flex-shrink-0 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hot Stone" class="w-full h-full object-cover premium-hover-img">
+              <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500"></div>
+              <div class="absolute top-4 right-4 bg-white/90 dark:bg-black/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-[600] tracking-widest uppercase text-gold">90 Min</div>
+            </div>
+            <div class="p-8 relative flex flex-col flex-grow">
+              <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-6 text-gold group-hover:scale-110 transition-transform duration-500">
+                <i class="fas fa-fire text-lg"></i>
+              </div>
+              <h3 class="font-display text-xl font-[600] text-dark-gray dark:text-white mb-3 uppercase tracking-wide">Volcanic Stone Ritual</h3>
+              <p class="text-gray-500 dark:text-gray-400 text-sm mb-6 line-clamp-2">Smooth, heated volcanic stones are placed on key energy points, delivering deep, penetrating heat to rapidly relax tight muscles.</p>
+              <a href="treatments.html" class="inline-flex items-center text-xs font-[600] text-dark-gray dark:text-white hover:text-gold dark:hover:text-gold uppercase tracking-widest transition-colors mt-auto pt-4">
+                Explore Therapy <i class="fas fa-arrow-right ml-2 text-[10px] transition-transform group-hover:translate-x-1"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="group relative bg-off-white dark:bg-[#111111] rounded-2xl overflow-hidden border border-gray-100 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full">
+            <div class="relative h-64 flex-shrink-0 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Deep Tissue" class="w-full h-full object-cover premium-hover-img">
+              <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500"></div>
+              <div class="absolute top-4 right-4 bg-white/90 dark:bg-black/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-[600] tracking-widest uppercase text-gold">60 Min</div>
+            </div>
+            <div class="p-8 relative flex flex-col flex-grow">
+              <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-6 text-gold group-hover:scale-110 transition-transform duration-500">
+                <i class="fas fa-hands text-lg"></i>
+              </div>
+              <h3 class="font-display text-xl font-[600] text-dark-gray dark:text-white mb-3 uppercase tracking-wide">Clinical Deep Tissue</h3>
+              <p class="text-gray-500 dark:text-gray-400 text-sm mb-6 line-clamp-2">Targeted therapy utilizing firm pressure to reach deeper layers of muscle and fascia, perfect for chronic pain and stiffness.</p>
+              <a href="treatments.html" class="inline-flex items-center text-xs font-[600] text-dark-gray dark:text-white hover:text-gold dark:hover:text-gold uppercase tracking-widest transition-colors mt-auto pt-4">
+                Explore Therapy <i class="fas fa-arrow-right ml-2 text-[10px] transition-transform group-hover:translate-x-1"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="group relative bg-off-white dark:bg-[#111111] rounded-2xl overflow-hidden border border-gray-100 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full">
+            <div class="relative h-64 flex-shrink-0 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Aromatherapy" class="w-full h-full object-cover premium-hover-img">
+              <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500"></div>
+              <div class="absolute top-4 right-4 bg-white/90 dark:bg-black/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-[600] tracking-widest uppercase text-gold">75 Min</div>
+            </div>
+            <div class="p-8 relative flex flex-col flex-grow">
+              <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-6 text-gold group-hover:scale-110 transition-transform duration-500">
+                <i class="fas fa-leaf text-lg"></i>
+              </div>
+              <h3 class="font-display text-xl font-[600] text-dark-gray dark:text-white mb-3 uppercase tracking-wide">Bespoke Aromatherapy</h3>
+              <p class="text-gray-500 dark:text-gray-400 text-sm mb-6 line-clamp-2">A sensory journey using custom-blended essential oils combined with flowing massage strokes to harmonize body and mind.</p>
+              <a href="treatments.html" class="inline-flex items-center text-xs font-[600] text-dark-gray dark:text-white hover:text-gold dark:hover:text-gold uppercase tracking-widest transition-colors mt-auto pt-4">
+                Explore Therapy <i class="fas fa-arrow-right ml-2 text-[10px] transition-transform group-hover:translate-x-1"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <section class="py-24 bg-gray-50 dark:bg-black relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-1/2 h-full bg-sand/10 dark:bg-white/5 transform skew-x-12 translate-x-32 hidden lg:block"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          
+          <div class="relative">
+            <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
+              <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Spa Interior" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-1000">
+            </div>
+            
+            <div class="absolute -bottom-8 -right-8 z-20 bg-white/80 dark:bg-[#111111]/80 backdrop-blur-xl p-6 rounded-2xl shadow-xl border border-white/40 dark:border-white/10 max-w-xs animate-fade-in hidden md:block">
+              <div class="flex items-center mb-4">
+                <div class="flex text-gold text-xs space-x-1">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+              </div>
+              <p class="text-sm text-dark-gray dark:text-gray-300 font-medium italic">"The attention to detail in the environment instantly lowers your cortisol. Truly a world-class recovery space."</p>
+              <div class="mt-4 flex items-center">
+                <div class="w-8 h-8 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden mr-3">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Client" class="w-full h-full object-cover">
+                </div>
+                <div>
+                  <h4 class="text-[10px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white">Elena R.</h4>
+                  <p class="text-[9px] text-gray-500 uppercase tracking-widest">Elite Member</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="absolute -top-10 -left-10 w-32 h-32 border border-gold/30 rounded-full z-0"></div>
+            <div class="absolute bottom-20 -left-6 w-16 h-16 bg-gold/20 rounded-full blur-xl z-0"></div>
+          </div>
+
+          <div class="lg:pl-8">
+            <span class="text-gold text-[10px] font-[600] tracking-[0.2em] uppercase mb-4 block">The Environment</span>
+            <h2 class="font-display text-4xl md:text-5xl font-[600] text-dark-gray dark:text-white mb-6 uppercase tracking-tight">
+              A Space Engineered <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-gold to-[#80CBC4]">For Healing</span>
+            </h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-8 font-medium leading-relaxed">
+              Every detail of our clinic has been meticulously designed to foster recovery. From acoustically isolated rooms to ambient light therapy and medical-grade air purification, your healing begins the moment you walk through our doors.
+            </p>
+            
+            <ul class="space-y-6 mb-10">
+              <li class="flex items-start">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-white dark:bg-[#111111] flex items-center justify-center shadow-sm border border-gray-100 dark:border-white/5 mr-4 mt-1">
+                  <i class="fas fa-volume-mute text-gold text-sm"></i>
+                </div>
+                <div>
+                  <h3 class="font-[600] text-dark-gray dark:text-white text-sm uppercase tracking-wider mb-1">Acoustic Isolation</h3>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">Total silence allowing your nervous system to fully down-regulate.</p>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-white dark:bg-[#111111] flex items-center justify-center shadow-sm border border-gray-100 dark:border-white/5 mr-4 mt-1">
+                  <i class="fas fa-wind text-gold text-sm"></i>
+                </div>
+                <div>
+                  <h3 class="font-[600] text-dark-gray dark:text-white text-sm uppercase tracking-wider mb-1">Pristine Air Quality</h3>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">HEPA filtration combined with subtle, therapeutic aromatherapy.</p>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-white dark:bg-[#111111] flex items-center justify-center shadow-sm border border-gray-100 dark:border-white/5 mr-4 mt-1">
+                  <i class="fas fa-bed text-gold text-sm"></i>
+                </div>
+                <div>
+                  <h3 class="font-[600] text-dark-gray dark:text-white text-sm uppercase tracking-wider mb-1">Ergonomic Tables</h3>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">Extra-wide, heated memory foam tables for maximum physical comfort.</p>
+                </div>
+              </li>
+            </ul>
+            
+            <a href="about.html" class="inline-flex items-center justify-center px-8 py-4 border border-dark-gray dark:border-white text-dark-gray dark:text-white hover:bg-dark-gray hover:text-white dark:hover:bg-white dark:hover:text-dark-gray font-[600] uppercase tracking-widest text-[10px] transition-all duration-300 rounded-full">
+              Tour The Clinic
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white dark:bg-deep-bg relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <div class="text-center max-w-3xl mx-auto mb-20">
+          <span class="text-gold text-[10px] font-[600] tracking-[0.2em] uppercase mb-4 block">Invest in yourself</span>
+          <h2 class="font-display text-4xl md:text-5xl font-[600] text-dark-gray dark:text-white mb-6 uppercase tracking-tight">
+            Elite <span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-600 dark:from-gray-500 dark:to-gray-300">Memberships</span>
+          </h2>
+          <p class="text-gray-500 dark:text-gray-400 font-medium">Commit to your long-term wellness with our structured bodywork plans, designed for consistent physical maintenance and peak performance.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+          
+          <div class="bg-off-white dark:bg-[#111111] rounded-3xl p-8 border border-gray-100 dark:border-white/5 hover:border-gold/30 transition-colors duration-300 relative">
+            <h3 class="font-display text-2xl font-[600] text-dark-gray dark:text-white uppercase mb-2">Essential</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 border-b border-gray-200 dark:border-white/10 pb-6">Monthly maintenance for active lifestyles.</p>
+            <div class="mb-8 flex items-end">
+              <span class="text-4xl font-[600] text-dark-gray dark:text-white font-display">$120</span>
+              <span class="text-xs text-gray-500 font-[600] uppercase tracking-wider ml-2 mb-1">/ Month</span>
+            </div>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                <i class="fas fa-check text-gold text-[10px] mr-3"></i> One 60-min session per month
+              </li>
+              <li class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                <i class="fas fa-check text-gold text-[10px] mr-3"></i> 10% off additional sessions
+              </li>
+              <li class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                <i class="fas fa-check text-gold text-[10px] mr-3"></i> Priority booking access
+              </li>
+              <li class="flex items-center text-sm text-gray-400 dark:text-gray-600 opacity-50">
+                <i class="fas fa-times text-[10px] mr-3"></i> Complimentary enhancements
+              </li>
+            </ul>
+            <a href="pricing.html" class="block w-full py-4 text-center border border-dark-gray dark:border-white/20 rounded-full text-[10px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white hover:bg-dark-gray hover:text-white dark:hover:bg-white dark:hover:text-dark-gray transition-colors">Select Plan</a>
+          </div>
+
+          <div class="bg-[#111111] dark:bg-[#1A1A1A] rounded-3xl p-10 border border-gold shadow-[0_0_30px_rgba(38,166,154,0.15)] relative transform lg:-translate-y-4 z-10">
+            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gold text-white px-4 py-1 rounded-full text-[9px] font-[600] uppercase tracking-widest shadow-md">Most Popular</div>
+            <h3 class="font-display text-2xl font-[600] text-white uppercase mb-2">Performance</h3>
+            <p class="text-sm text-gray-400 mb-6 border-b border-gray-800 pb-6">For serious recovery and pain management.</p>
+            <div class="mb-8 flex items-end">
+              <span class="text-5xl font-[600] text-white font-display">$210</span>
+              <span class="text-xs text-gray-500 font-[600] uppercase tracking-wider ml-2 mb-2">/ Month</span>
+            </div>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-center text-sm text-gray-300">
+                <i class="fas fa-check text-gold text-[10px] mr-3"></i> Two 60-min sessions per month
+              </li>
+              <li class="flex items-center text-sm text-gray-300">
+                <i class="fas fa-check text-gold text-[10px] mr-3"></i> 15% off additional sessions
+              </li>
+              <li class="flex items-center text-sm text-gray-300">
+                <i class="fas fa-check text-gold text-[10px] mr-3"></i> VIP Priority booking
+              </li>
+              <li class="flex items-center text-sm text-gray-300">
+                <i class="fas fa-check text-gold text-[10px] mr-3"></i> 1 Free enhancement per month
+              </li>
+              <li class="flex items-center text-sm text-gray-300">
+                <i class="fas fa-check text-gold text-[10px] mr-3"></i> Dedicated therapist selection
+              </li>
+            </ul>
+            <a href="pricing.html" class="block w-full py-4 text-center bg-gold hover:bg-gold-hover rounded-full text-[10px] font-[600] uppercase tracking-widest text-white transition-colors shadow-lg">Select Performance</a>
+          </div>
+
+          <div class="bg-off-white dark:bg-[#111111] rounded-3xl p-8 border border-gray-100 dark:border-white/5 hover:border-gold/30 transition-colors duration-300 relative">
+            <h3 class="font-display text-2xl font-[600] text-dark-gray dark:text-white uppercase mb-2">Ultimate</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 border-b border-gray-200 dark:border-white/10 pb-6">The pinnacle of personalized body care.</p>
+            <div class="mb-8 flex items-end">
+              <span class="text-4xl font-[600] text-dark-gray dark:text-white font-display">$390</span>
+              <span class="text-xs text-gray-500 font-[600] uppercase tracking-wider ml-2 mb-1">/ Month</span>
+            </div>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                <i class="fas fa-check text-gold text-[10px] mr-3"></i> Four 60-min sessions per month
+              </li>
+              <li class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                <i class="fas fa-check text-gold text-[10px] mr-3"></i> 20% off additional sessions
+              </li>
+              <li class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                <i class="fas fa-check text-gold text-[10px] mr-3"></i> Unlimited enhancements
+              </li>
+              <li class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                <i class="fas fa-check text-gold text-[10px] mr-3"></i> Exclusive event invites
+              </li>
+            </ul>
+            <a href="pricing.html" class="block w-full py-4 text-center border border-dark-gray dark:border-white/20 rounded-full text-[10px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white hover:bg-dark-gray hover:text-white dark:hover:bg-white dark:hover:text-dark-gray transition-colors">Select Ultimate</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-black text-white relative border-y border-white/5">
+      <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519824145371-29681f010178?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')] opacity-5 bg-cover bg-center bg-fixed"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+          <i class="fas fa-quote-right text-gold text-3xl mb-6 opacity-50"></i>
+          <h2 class="font-display text-4xl md:text-5xl font-[600] uppercase tracking-tight mb-2">Word of <span class="text-gold">Mouth</span></h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          
+          <div class="p-8 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:border-gold/50 transition-colors duration-500">
+            <div class="flex text-gold text-[10px] mb-6 space-x-1">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="text-lg md:text-xl font-medium leading-relaxed text-gray-300 mb-8 italic">
+              "As a professional athlete, recovery is my top priority. The deep tissue work I receive at TherapyNow has fundamentally changed my performance. They understand body mechanics better than anyone."
+            </p>
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-[#111111] rounded-full mr-4 flex items-center justify-center border border-gold/30">
+                <span class="text-sm font-[600] text-gold uppercase">JD</span>
+              </div>
+              <div>
+                <h4 class="text-sm font-[600] uppercase tracking-widest text-white">James Davies</h4>
+                <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Triathlete</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-8 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:border-gold/50 transition-colors duration-500">
+            <div class="flex text-gold text-[10px] mb-6 space-x-1">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="text-lg md:text-xl font-medium leading-relaxed text-gray-300 mb-8 italic">
+              "I’ve suffered from chronic desk-worker tension for years. Just two months into the Performance membership, my posture has improved and my daily migraines are completely gone."
+            </p>
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-[#111111] rounded-full mr-4 flex items-center justify-center border border-gold/30">
+                <span class="text-sm font-[600] text-gold uppercase">SW</span>
+              </div>
+              <div>
+                <h4 class="text-sm font-[600] uppercase tracking-widest text-white">Sarah Williams</h4>
+                <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Creative Director</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 relative overflow-hidden bg-white dark:bg-black">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <div class="bg-black dark:bg-[#111111] rounded-3xl p-10 md:p-16 lg:p-20 relative overflow-hidden shadow-2xl border border-white/10">
+          
+          <div class="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl"></div>
+          <div class="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+
+          <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between text-center lg:text-left">
+            
+            <div class="max-w-2xl lg:mr-10 mb-10 lg:mb-0">
+              <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-[600] text-white mb-6 uppercase tracking-tight">
+                Ready to Restore <br/> <span class="text-gold">Your Body?</span>
+              </h2>
+              <p class="text-gray-400 text-lg font-medium max-w-xl mx-auto lg:mx-0">
+                Secure your appointment today and step into a world of clinical excellence and unparalleled relaxation. Your journey to living pain-free starts here.
+              </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+              <a href="booking.html" class="inline-flex items-center justify-center px-10 py-5 bg-gold hover:bg-gold-hover text-white font-[600] uppercase tracking-widest text-[11px] transition-all duration-300 rounded-full shadow-[0_0_20px_rgba(38,166,154,0.3)] whitespace-nowrap">
+                Book A Session <i class="fas fa-calendar-check ml-3"></i>
+              </a>
+              <a href="contact.html" class="inline-flex items-center justify-center px-10 py-5 bg-transparent border border-white/20 hover:border-white hover:bg-white text-white hover:text-dark-gray font-[600] uppercase tracking-widest text-[11px] transition-all duration-300 rounded-full whitespace-nowrap">
+                Ask A Question
+              </a>
+            </div>
+
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-black text-white pt-24 pb-12 mt-auto relative z-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        
+        <div>
+          <h3 class="font-display text-3xl font-[600] tracking-tight uppercase mb-6">Therapy<span class="text-gold">Now.</span></h3>
+          <p class="text-gray-400 mb-8 font-medium leading-relaxed text-sm">
+            Empowering you to feel your absolute best through clinical, personalized massage therapy and advanced bodywork.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="w-10 h-10 border border-white/20 hover:border-gold hover:bg-gold hover:text-white flex items-center justify-center transition-all duration-300 rounded-full">
+              <i class="fab fa-facebook-f text-sm"></i>
+            </a>
+            <a href="#" class="w-10 h-10 border border-white/20 hover:border-gold hover:bg-gold hover:text-white flex items-center justify-center transition-all duration-300 rounded-full">
+              <i class="fab fa-instagram text-sm"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-sm uppercase tracking-[0.2em] font-[600] mb-8 text-white">Quick Links</h4>
+          <ul class="space-y-4">
+            <li><a href="index.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Home</a></li>
+            <li><a href="about.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Our Clinic</a></li>
+            <li><a href="therapists.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Our Therapists</a></li>
+            <li><a href="pricing.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Memberships</a></li>
+            <li><a href="treatments.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Treatments</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm uppercase tracking-[0.2em] font-[600] mb-8 text-white">Our Services</h4>
+          <ul class="space-y-4">
+            <li><a href="services.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Deep Tissue Massage</a></li>
+            <li><a href="services.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Hot Stone Ritual</a></li>
+            <li><a href="services.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Sports Recovery</a></li>
+            <li><a href="services.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Myofascial Release</a></li>
+            <li><a href="services.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Aromatherapy</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm uppercase tracking-[0.2em] font-[600] mb-8 text-white">Contact Us</h4>
+          <ul class="space-y-6">
+            <li class="flex items-start group">
+              <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center mr-4 group-hover:bg-gold transition-colors">
+                <i class="fas fa-map-marker-alt text-gold group-hover:text-white text-sm transition-colors"></i>
+              </div>
+              <span class="text-sm text-gray-400 font-medium mt-1 w-48">452 Wellness Blvd, Tech District</span>
+            </li>
+            <li class="flex items-center group">
+              <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center mr-4 group-hover:bg-gold transition-colors">
+                <i class="fas fa-phone text-gold group-hover:text-white text-sm transition-colors"></i>
+              </div>
+              <a href="tel:+15551234567" class="text-sm text-gray-400 hover:text-white transition-colors font-medium">(555) 123-4567</a>
+            </li>
+            <li class="flex items-center group">
+              <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center mr-4 group-hover:bg-gold transition-colors">
+                <i class="fas fa-envelope text-gold group-hover:text-white text-sm transition-colors"></i>
+              </div>
+              <a href="mailto:info@therapynow.com" class="text-sm text-gray-400 hover:text-white transition-colors font-medium">info@therapynow.com</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-500 text-xs tracking-widest uppercase mb-4 md:mb-0 font-[600]">
+          © 2026 TherapyNow. All rights reserved.
+        </p>
+        <div class="flex space-x-6">
+          <a href="login.html" class="text-gray-500 hover:text-gold text-xs tracking-widest uppercase font-[600] transition-colors duration-300">Client Login</a>
+          <a href="#" class="text-gray-500 hover:text-gold text-xs tracking-widest uppercase font-[600] transition-colors duration-300">Privacy</a>
+          <a href="#" class="text-gray-500 hover:text-gold text-xs tracking-widest uppercase font-[600] transition-colors duration-300">Terms</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+    const html = document.documentElement;
+
+    function toggleTheme() {
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+    if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
+    if (localStorage.getItem('theme') === 'dark') html.classList.add('dark');
+
+    // RTL Toggle
+    const rtlToggle = document.getElementById('rtl-toggle');
+    const mobileRtlToggle = document.getElementById('mobile-rtl-toggle');
+
+    function toggleRTL() {
+      if (html.getAttribute('dir') === 'rtl') {
+        html.removeAttribute('dir');
+        localStorage.setItem('direction', 'ltr');
+      } else {
+        html.setAttribute('dir', 'rtl');
+        localStorage.setItem('direction', 'rtl');
+      }
+    }
+
+    if (rtlToggle) rtlToggle.addEventListener('click', toggleRTL);
+    if (mobileRtlToggle) mobileRtlToggle.addEventListener('click', toggleRTL);
+    if (localStorage.getItem('direction') === 'rtl') html.setAttribute('dir', 'rtl');
+
+    // Mobile Menu Toggle - Updated for full screen overlay
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+      
+      // Prevent body scroll when menu is open
+      if(!mobileMenu.classList.contains('hidden')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Mobile Dropdowns Toggle Function
+    function setupMobileDropdown(dropdownId, menuId, iconId) {
+      const dropdown = document.getElementById(dropdownId);
+      const menu = document.getElementById(menuId);
+      const icon = document.getElementById(iconId);
+      
+      if(dropdown && menu && icon) {
+        dropdown.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+          if(menu.classList.contains('hidden')) {
+            icon.classList.remove('fa-minus');
+            icon.classList.add('fa-plus');
+          } else {
+            icon.classList.remove('fa-plus');
+            icon.classList.add('fa-minus');
+          }
+        });
+      }
+    }
+
+    // Initialize dropdowns
+    setupMobileDropdown('mobile-home-dropdown', 'mobile-home-menu', 'mobile-home-icon');
+    setupMobileDropdown('mobile-dashboard-dropdown', 'mobile-dashboard-menu', 'mobile-dashboard-icon');
+
+  </script>
+</body>
+</html>

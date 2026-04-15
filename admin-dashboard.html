@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - TherapyNow</title>
+  <link rel="icon" type="image/jpeg" href="image\therapynow_logo.jpg">
+  <script src="tailwind.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Syne:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    tailwind.config = { 
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['Syne', 'sans-serif'],
+          },
+          colors: {
+            gold: '#26A69A',         // Mint Fresh
+            'gold-hover': '#111111', // Dark Gray
+            'dark-gray': '#171717',  // Neutral Dark Gray
+            sand: '#80CBC4',         // Light Mint
+            white: '#FFFFFF',        // Pure White
+            'off-white': '#E0F2F1',  // Mint Ice
+            'deep-bg': '#000000',    // Pure Black
+            black: '#000000',        // True Dark
+            'nav-bg': '#FFFFFF',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    .dark ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; }
+    .dark ::-webkit-scrollbar-thumb { background: #333333; }
+    ::-webkit-scrollbar-thumb:hover { background: #26A69A; }
+    
+    /* Smooth transition for sidebar */
+    .sidebar-transition {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* RTL Support */
+    [dir="rtl"] #sidebar {
+      left: auto;
+      right: 0;
+    }
+
+    [dir="rtl"] #sidebar.sidebar-closed {
+      transform: translateX(100%);
+    }
+
+    [dir="rtl"] .flex-1.lg\:ml-64 {
+      margin-left: 0;
+      margin-right: 16rem;
+    }
+
+    [dir="ltr"] #sidebar.sidebar-closed {
+      transform: translateX(-100%);
+    }
+
+    .pill-nav {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased bg-off-white dark:bg-deep-bg text-dark-gray dark:text-white transition-colors duration-300">
+
+  <div class="flex h-screen overflow-hidden">
+
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden backdrop-blur-sm transition-opacity opacity-0"></div>
+
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-dark-gray dark:bg-[#111111] border-r border-gray-200 dark:border-white/10 text-white sidebar-closed lg:!translate-x-0 sidebar-transition flex flex-col">
+      
+      <div class="h-[90px] flex items-center justify-center border-b border-gray-800 dark:border-white/10 px-6 shrink-0">
+        <a href="index.html" class="flex items-center space-x-3">
+          <div class="flex flex-col">
+            <span class="font-display text-2xl font-[600] tracking-tight text-white uppercase">Therapy<span class="text-gold">Now.</span></span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="flex-1 overflow-y-auto py-8 space-y-2 scrollbar-thin">
+        
+        <p class="px-8 text-[10px] font-[600] text-gray-400 dark:text-gray-500 uppercase tracking-[0.2em] mb-4">Main</p>
+        
+        <a href="admin-dashboard.html" class="flex items-center space-x-4 px-8 py-3 bg-white/5 border-l-2 border-gold text-gold transition-all duration-300 group">
+          <i class="fas fa-th-large w-5 text-center"></i>
+          <span class="text-xs uppercase tracking-widest font-[600]">Dashboard</span>
+        </a>
+
+        <a href="#" class="flex items-center space-x-4 px-8 py-3 text-gray-300 dark:text-gray-400 border-l-2 border-transparent hover:border-gold hover:text-gold hover:bg-white/5 transition-all duration-300 group">
+          <i class="fas fa-calendar-check w-5 text-center transition-colors"></i>
+          <span class="text-xs uppercase tracking-widest font-[600]">Bookings</span>
+          <span class="ml-auto bg-gold text-white text-[10px] font-[600] px-2 py-0.5 rounded-full">5</span>
+        </a>
+
+        <a href="#" class="flex items-center space-x-4 px-8 py-3 text-gray-300 dark:text-gray-400 border-l-2 border-transparent hover:border-gold hover:text-gold hover:bg-white/5 transition-all duration-300 group">
+          <i class="fas fa-users w-5 text-center transition-colors"></i>
+          <span class="text-xs uppercase tracking-widest font-[600]">Clients</span>
+        </a>
+
+        <a href="therapists.html" class="flex items-center space-x-4 px-8 py-3 text-gray-300 dark:text-gray-400 border-l-2 border-transparent hover:border-gold hover:text-gold hover:bg-white/5 transition-all duration-300 group">
+          <i class="fas fa-user-md w-5 text-center transition-colors"></i>
+          <span class="text-xs uppercase tracking-widest font-[600]">Therapists</span>
+        </a>
+
+        <p class="px-8 text-[10px] font-[600] text-gray-400 dark:text-gray-500 uppercase tracking-[0.2em] mt-10 mb-4">Management</p>
+
+        <a href="#" class="flex items-center space-x-4 px-8 py-3 text-gray-300 dark:text-gray-400 border-l-2 border-transparent hover:border-gold hover:text-gold hover:bg-white/5 transition-all duration-300 group">
+          <i class="fas fa-tags w-5 text-center transition-colors"></i>
+          <span class="text-xs uppercase tracking-widest font-[600]">Pricing</span>
+        </a>
+
+        <a href="#" class="flex items-center space-x-4 px-8 py-3 text-gray-300 dark:text-gray-400 border-l-2 border-transparent hover:border-gold hover:text-gold hover:bg-white/5 transition-all duration-300 group">
+          <i class="fas fa-envelope w-5 text-center transition-colors"></i>
+          <span class="text-xs uppercase tracking-widest font-[600]">Inquiries</span>
+        </a>
+
+        <a href="#" class="flex items-center space-x-4 px-8 py-3 text-gray-300 dark:text-gray-400 border-l-2 border-transparent hover:border-gold hover:text-gold hover:bg-white/5 transition-all duration-300 group">
+          <i class="fas fa-cog w-5 text-center transition-colors"></i>
+          <span class="text-xs uppercase tracking-widest font-[600]">Settings</span>
+        </a>
+      </nav>
+
+      <div class="p-6 border-t border-gray-800 dark:border-white/10 bg-dark-gray dark:bg-[#1A1A1A]">
+        <div class="flex items-center space-x-4 group cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Admin" class="w-10 h-10 object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-300" onerror="this.src='https://ui-avatars.com/api/?name=Admin&background=26A69A&color=fff&rounded=true'">
+          <div class="overflow-hidden">
+            <p class="text-xs uppercase tracking-wider font-[600] text-white truncate">Sarah Jenkins</p>
+            <p class="text-[10px] uppercase tracking-widest text-gold truncate">Lead Therapist</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="flex-1 flex flex-col lg:ml-64 min-w-0 transition-all duration-300 bg-off-white dark:bg-deep-bg">
+      
+      <header class="mx-4 md:mx-8 mt-6 mb-2 bg-nav-bg dark:bg-black rounded-full px-6 py-3 flex items-center justify-between z-30 sticky top-4 border border-gray-100 dark:border-white/10 transition-colors duration-300 pill-nav">
+        
+        <div class="flex items-center gap-4">
+          <button id="sidebar-toggle" class="lg:hidden p-2 ltr:-ml-2 rtl:-mr-2 text-dark-gray dark:text-white transition-colors focus:outline-none hover:text-gold">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+          <h2 class="text-[12px] font-[600] tracking-widest uppercase text-dark-gray dark:text-white truncate hidden sm:block">Dashboard Overview</h2>
+        </div>
+
+        <div class="flex items-center gap-5">
+          
+          <div class="hidden md:flex relative group">
+            <input type="text" placeholder="SEARCH..." class="ltr:pl-10 rtl:pr-10 ltr:pr-4 rtl:pl-4 py-2 bg-transparent border-b border-gray-300 dark:border-gray-700 text-dark-gray dark:text-white text-[11px] font-[600] uppercase tracking-widest focus:outline-none focus:border-gold w-48 lg:w-64 transition-all">
+            <i class="fas fa-search absolute ltr:left-2 rtl:right-2 top-2.5 text-gray-400 group-focus-within:text-gold transition-colors text-[11px]"></i>
+          </div>
+
+          <div class="h-5 w-px bg-gray-300 dark:bg-gray-700 mx-1 hidden sm:block"></div>
+
+          <button id="rtl-toggle" class="text-[11px] font-[600] uppercase tracking-widest text-gray-500 hover:text-gold transition-colors duration-300" title="Toggle RTL">
+            <span id="rtl-text">RTL</span>
+          </button>
+
+          <button id="theme-toggle" class="flex items-center justify-center text-gray-500 hover:text-gold dark:hover:text-gold transition-colors duration-300" title="Toggle Theme">
+            <i class="fas fa-moon dark:hidden text-[14px]"></i>
+            <i class="fas fa-sun hidden dark:inline text-[14px]"></i>
+          </button>
+
+          <a href="login.html" class="bg-gold text-white hover:bg-gold-hover px-5 py-2 rounded-full text-[11px] uppercase tracking-wider font-[600] transition-all duration-300 flex items-center space-x-2 ltr:ml-2 rtl:mr-2">
+            <span class="hidden sm:inline">Logout</span>
+            <i class="fas fa-arrow-right text-[10px]"></i>
+          </a>
+
+        </div>
+      </header>
+
+      <main class="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth">
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          
+          <div class="bg-white dark:bg-[#111111] p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5 relative group hover:border-gold transition-colors">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-t-2xl"></div>
+            <p class="text-[10px] text-gray-500 dark:text-gray-400 font-[600] uppercase tracking-widest mb-2">Total Revenue</p>
+            <h3 class="font-display text-3xl font-[600] text-dark-gray dark:text-white">$24,500</h3>
+            <div class="mt-4 flex items-center text-[10px] font-[600] tracking-wider uppercase">
+              <span class="text-gold flex items-center"><i class="fas fa-arrow-up mr-1"></i> 15%</span>
+              <span class="text-gray-400 ml-2">Vs Last Month</span>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-[#111111] p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5 relative group hover:border-gold transition-colors">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-t-2xl"></div>
+            <p class="text-[10px] text-gray-500 dark:text-gray-400 font-[600] uppercase tracking-widest mb-2">Active Bookings</p>
+            <h3 class="font-display text-3xl font-[600] text-dark-gray dark:text-white">32</h3>
+            <div class="mt-4 flex items-center text-[10px] font-[600] tracking-wider uppercase">
+              <span class="text-gray-400">12 Upcoming This Week</span>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-[#111111] p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5 relative group hover:border-gold transition-colors">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-t-2xl"></div>
+            <p class="text-[10px] text-gray-500 dark:text-gray-400 font-[600] uppercase tracking-widest mb-2">Total Clients</p>
+            <h3 class="font-display text-3xl font-[600] text-dark-gray dark:text-white">840</h3>
+            <div class="mt-4 flex items-center text-[10px] font-[600] tracking-wider uppercase">
+              <span class="text-gold flex items-center"><i class="fas fa-arrow-up mr-1"></i> 8%</span>
+              <span class="text-gray-400 ml-2">Vs Last Month</span>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-[#111111] p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5 relative group hover:border-gold transition-colors">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-t-2xl"></div>
+            <p class="text-[10px] text-gray-500 dark:text-gray-400 font-[600] uppercase tracking-widest mb-2">Therapists Available</p>
+            <h3 class="font-display text-3xl font-[600] text-dark-gray dark:text-white">6</h3>
+            <div class="mt-4 flex items-center text-[10px] font-[600] tracking-wider uppercase">
+              <span class="text-gold">All Online</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-8">
+          <div class="bg-white dark:bg-[#111111] p-6 rounded-3xl shadow-sm border border-gray-100 dark:border-white/5">
+            <h3 class="text-xs font-[600] uppercase tracking-widest text-dark-gray dark:text-white mb-6">Revenue Analytics</h3>
+            <div class="relative h-64 w-full">
+              <canvas id="revenueChart"></canvas>
+            </div>
+          </div>
+          <div class="bg-white dark:bg-[#111111] p-6 rounded-3xl shadow-sm border border-gray-100 dark:border-white/5">
+            <h3 class="text-xs font-[600] uppercase tracking-widest text-dark-gray dark:text-white mb-6">Treatment Distribution</h3>
+            <div class="relative h-64 w-full flex justify-center">
+              <canvas id="projectChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-6">
+          
+          <div class="lg:col-span-2 bg-white dark:bg-[#111111] rounded-3xl shadow-sm border border-gray-100 dark:border-white/5 overflow-hidden mb-8 lg:mb-0">
+            <div class="p-6 border-b border-gray-100 dark:border-white/5 flex items-center justify-between">
+              <h3 class="text-xs font-[600] uppercase tracking-widest text-dark-gray dark:text-white">Recent Appointments</h3>
+              <button class="text-[10px] font-[600] uppercase tracking-widest text-gold hover:text-dark-gray dark:hover:text-white transition-colors">View All</button>
+            </div>
+            
+            <div class="overflow-x-auto">
+              <table class="w-full text-left rtl:text-right whitespace-nowrap">
+                <thead>
+                  <tr class="bg-gray-50 dark:bg-[#1A1A1A] text-gray-500 dark:text-gray-400 text-[10px] uppercase tracking-widest border-b border-gray-100 dark:border-white/5">
+                    <th class="px-6 py-4 font-[600]">Client Name</th>
+                    <th class="px-6 py-4 font-[600]">Treatment</th>
+                    <th class="px-6 py-4 font-[600]">Date & Time</th>
+                    <th class="px-6 py-4 font-[600]">Status</th>
+                    <th class="px-6 py-4 font-[600] ltr:text-right rtl:text-left">Action</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100 dark:divide-white/5 text-sm">
+                  <tr class="hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group">
+                    <td class="px-6 py-5 font-[600] text-dark-gray dark:text-white">Emily Blunt</td>
+                    <td class="px-6 py-5 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">Deep Tissue</td>
+                    <td class="px-6 py-5 text-gray-500 dark:text-gray-400 text-xs tracking-wider">OCT 28, 10:00 AM</td>
+                    <td class="px-6 py-5">
+                      <span class="text-[10px] font-[600] uppercase tracking-widest text-gold">Confirmed</span>
+                    </td>
+                    <td class="px-6 py-5 ltr:text-right rtl:text-left">
+                      <button class="text-gray-400 hover:text-gold transition-colors"><i class="fas fa-arrow-right"></i></button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group">
+                    <td class="px-6 py-5 font-[600] text-dark-gray dark:text-white">John Doe</td>
+                    <td class="px-6 py-5 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">Sports Recovery</td>
+                    <td class="px-6 py-5 text-gray-500 dark:text-gray-400 text-xs tracking-wider">OCT 29, 2:00 PM</td>
+                    <td class="px-6 py-5">
+                      <span class="text-[10px] font-[600] uppercase tracking-widest text-gray-500">Pending</span>
+                    </td>
+                    <td class="px-6 py-5 ltr:text-right rtl:text-left">
+                      <button class="text-gray-400 hover:text-gold transition-colors"><i class="fas fa-arrow-right"></i></button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group">
+                    <td class="px-6 py-5 font-[600] text-dark-gray dark:text-white">Sarah Williams</td>
+                    <td class="px-6 py-5 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">Hot Stone Ritual</td>
+                    <td class="px-6 py-5 text-gray-500 dark:text-gray-400 text-xs tracking-wider">NOV 02, 9:00 AM</td>
+                    <td class="px-6 py-5">
+                      <span class="text-[10px] font-[600] uppercase tracking-widest text-gold">Confirmed</span>
+                    </td>
+                    <td class="px-6 py-5 ltr:text-right rtl:text-left">
+                      <button class="text-gray-400 hover:text-gold transition-colors"><i class="fas fa-arrow-right"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-[#111111] border border-gray-100 dark:border-white/5 rounded-3xl shadow-sm p-6">
+            <h3 class="text-xs font-[600] uppercase tracking-widest text-dark-gray dark:text-white mb-6">Recent Inquiries</h3>
+            <div class="space-y-6">
+              
+              <div class="flex items-start space-x-4 rtl:space-x-reverse group cursor-pointer">
+                <div class="w-10 h-10 border border-gray-200 dark:border-white/10 rounded-full flex items-center justify-center text-gray-400 group-hover:border-gold group-hover:text-gold transition-colors">
+                  <i class="fas fa-user text-xs"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex justify-between items-start">
+                    <h4 class="text-sm font-[600] text-dark-gray dark:text-white uppercase tracking-wider truncate">Michael Brown</h4>
+                    <span class="text-[10px] font-[600] uppercase tracking-widest text-gold">2H Ago</span>
+                  </div>
+                  <p class="text-xs text-gray-500 dark:text-gray-400 mt-2 line-clamp-2 leading-relaxed">Looking for a deep tissue massage for chronic back pain. What do you recommend?</p>
+                </div>
+              </div>
+
+              <hr class="border-gray-100 dark:border-white/5">
+
+              <div class="flex items-start space-x-4 rtl:space-x-reverse group cursor-pointer">
+                <div class="w-10 h-10 border border-gray-200 dark:border-white/10 rounded-full flex items-center justify-center text-gray-400 group-hover:border-gold group-hover:text-gold transition-colors">
+                  <i class="fas fa-user text-xs"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex justify-between items-start">
+                    <h4 class="text-sm font-[600] text-dark-gray dark:text-white uppercase tracking-wider truncate">Emily Davis</h4>
+                    <span class="text-[10px] font-[600] uppercase tracking-widest text-gold">5H Ago</span>
+                  </div>
+                  <p class="text-xs text-gray-500 dark:text-gray-400 mt-2 line-clamp-2 leading-relaxed">Interested in booking a prenatal massage session next week...</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // --- RTL/LTR Toggle Logic ---
+    const rtlToggle = document.getElementById('rtl-toggle');
+    const rtlText = document.getElementById('rtl-text');
+    const html = document.documentElement;
+    const mainContent = document.querySelector('.flex-1.lg\\:ml-64');
+
+    if (localStorage.getItem('direction') === 'rtl') {
+      html.setAttribute('dir', 'rtl');
+      rtlText.textContent = 'LTR';
+      if (mainContent) {
+        mainContent.classList.remove('lg:ml-64');
+        mainContent.classList.add('lg:mr-64');
+      }
+    } else {
+      html.setAttribute('dir', 'ltr');
+      rtlText.textContent = 'RTL';
+    }
+
+    rtlToggle.addEventListener('click', () => {
+      const currentDir = html.getAttribute('dir');
+      
+      if (currentDir === 'ltr') {
+        html.setAttribute('dir', 'rtl');
+        localStorage.setItem('direction', 'rtl');
+        rtlText.textContent = 'LTR';
+        if (mainContent) {
+          mainContent.classList.remove('lg:ml-64');
+          mainContent.classList.add('lg:mr-64');
+        }
+      } else {
+        html.setAttribute('dir', 'ltr');
+        localStorage.setItem('direction', 'ltr');
+        rtlText.textContent = 'RTL';
+        if (mainContent) {
+          mainContent.classList.remove('lg:mr-64');
+          mainContent.classList.add('lg:ml-64');
+        }
+      }
+    });
+
+    // --- Responsive Sidebar Logic ---
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const overlay = document.getElementById('sidebar-overlay');
+    
+    function toggleSidebar() {
+      const isClosed = sidebar.classList.contains('sidebar-closed');
+      
+      if (isClosed) {
+        sidebar.classList.remove('sidebar-closed');
+        overlay.classList.remove('hidden');
+        setTimeout(() => {
+          overlay.classList.remove('opacity-0');
+        }, 10);
+      } else {
+        sidebar.classList.add('sidebar-closed');
+        overlay.classList.add('opacity-0');
+        setTimeout(() => {
+          overlay.classList.add('hidden');
+        }, 300);
+      }
+    }
+
+    sidebarToggle.addEventListener('click', toggleSidebar);
+    overlay.addEventListener('click', toggleSidebar);
+
+    // --- Dark Mode Logic ---
+    const themeToggle = document.getElementById('theme-toggle');
+
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      html.classList.add('dark');
+    } else {
+      html.classList.remove('dark');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      if (html.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+        updateCharts(true);
+      } else {
+        localStorage.setItem('theme', 'light');
+        updateCharts(false);
+      }
+    });
+
+    // --- Chart.js Configuration ---
+    let revenueChart, projectChart;
+
+    function initCharts() {
+      const isDark = html.classList.contains('dark');
+      const textColor = isDark ? '#9ca3af' : '#4b5563';
+      const gridColor = isDark ? '#1A1A1A' : '#e5e7eb';
+
+      const ctx1 = document.getElementById('revenueChart').getContext('2d');
+      revenueChart = new Chart(ctx1, {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+          datasets: [{
+            label: 'Revenue ($)',
+            data: [15000, 21000, 18000, 29000, 24000, 34000],
+            borderColor: '#26A69A',
+            backgroundColor: 'rgba(38, 166, 154, 0.1)',
+            tension: 0,
+            fill: true,
+            borderWidth: 2,
+            pointBackgroundColor: isDark ? '#111111' : '#fff',
+            pointBorderColor: '#26A69A',
+            pointRadius: 4,
+            pointHoverRadius: 6
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              grid: { color: gridColor, drawBorder: false },
+              ticks: { color: textColor, font: { family: 'sans-serif', size: 10 } }
+            },
+            x: {
+              grid: { display: false },
+              ticks: { color: textColor, font: { family: 'sans-serif', size: 10 } }
+            }
+          },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: isDark ? '#111111' : '#fff',
+              titleColor: isDark ? '#fff' : '#111111',
+              bodyColor: isDark ? '#ccc' : '#444',
+              borderColor: gridColor,
+              borderWidth: 1,
+              padding: 12,
+              cornerRadius: 8,
+              displayColors: false
+            }
+          }
+        }
+      });
+
+      const ctx2 = document.getElementById('projectChart').getContext('2d');
+      projectChart = new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+          labels: ['Deep Tissue', 'Sports', 'Hot Stone'],
+          datasets: [{
+            data: [45, 32, 23],
+            backgroundColor: ['#111111', '#26A69A', '#e5e7eb'],
+            borderWidth: isDark ? 2 : 0,
+            borderColor: isDark ? '#111111' : '#fff',
+            hoverOffset: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: '75%',
+          plugins: {
+            legend: { position: 'bottom', labels: { color: textColor, padding: 20, usePointStyle: false, boxWidth: 10, font: {size: 10, family: 'sans-serif'} } }
+          }
+        }
+      });
+      
+      if(isDark) {
+          projectChart.data.datasets[0].backgroundColor = ['#fff', '#26A69A', '#1A1A1A'];
+          projectChart.update();
+      }
+    }
+
+    function updateCharts(isDark) {
+      const textColor = isDark ? '#9ca3af' : '#4b5563';
+      const gridColor = isDark ? '#1A1A1A' : '#e5e7eb';
+
+      if(revenueChart) {
+        revenueChart.options.scales.y.grid.color = gridColor;
+        revenueChart.options.scales.y.ticks.color = textColor;
+        revenueChart.options.scales.x.ticks.color = textColor;
+        revenueChart.options.plugins.tooltip.backgroundColor = isDark ? '#111111' : '#fff';
+        revenueChart.options.plugins.tooltip.titleColor = isDark ? '#fff' : '#111111';
+        revenueChart.options.plugins.tooltip.bodyColor = isDark ? '#ccc' : '#444';
+        revenueChart.options.plugins.tooltip.borderColor = gridColor;
+        revenueChart.data.datasets[0].pointBackgroundColor = isDark ? '#111111' : '#fff';
+        revenueChart.update();
+      }
+      if(projectChart) {
+        projectChart.options.plugins.legend.labels.color = textColor;
+        projectChart.data.datasets[0].backgroundColor = isDark ? ['#fff', '#26A69A', '#1A1A1A'] : ['#111111', '#26A69A', '#e5e7eb'];
+        projectChart.data.datasets[0].borderWidth = isDark ? 2 : 0;
+        projectChart.data.datasets[0].borderColor = isDark ? '#111111' : '#fff';
+        projectChart.update();
+      }
+    }
+
+    window.addEventListener('load', initCharts);
+    
+    window.addEventListener('resize', () => {
+       if (window.innerWidth >= 1024) {
+         sidebar.classList.remove('sidebar-closed');
+         overlay.classList.add('hidden', 'opacity-0');
+       } else {
+         if (!overlay.classList.contains('hidden')) {
+           // Keep open if it was open
+         } else {
+           sidebar.classList.add('sidebar-closed');
+         }
+       }
+    });
+  </script>
+</body>
+</html>

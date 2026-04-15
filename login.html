@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - TherapyNow</title>
+  <link rel="icon" type="image/jpeg" href="image\therapynow_logo.jpg">
+  <script src="tailwind.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Syne:wght@400;600&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['Syne', 'sans-serif'],
+          },
+          colors: {
+            gold: '#26A69A',         // Mint Fresh
+            'gold-hover': '#111111', // Dark Gray
+            'dark-gray': '#171717',  // Neutral Dark Gray
+            sand: '#80CBC4',         // Light Mint
+            white: '#FFFFFF',        // Pure White
+            'off-white': '#E0F2F1',  // Mint Ice
+            'deep-bg': '#000000',    // Pure Black
+            black: '#000000',        // True Dark
+            'nav-bg': '#FFFFFF'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    /* RTL Support */
+    [dir="rtl"] .animated-circle-left {
+      left: auto;
+      right: 2.5rem;
+    }
+
+    [dir="rtl"] .animated-circle-right {
+      right: auto;
+      left: 2.5rem;
+    }
+
+    /* Ensure no horizontal scroll */
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    .pill-nav {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased bg-off-white dark:bg-deep-bg h-screen overflow-hidden flex flex-col transition-colors duration-500 text-dark-gray dark:text-white">
+
+  <div class="fixed w-full top-4 z-50 px-4 pointer-events-none flex justify-center">
+    <nav class="pointer-events-auto bg-nav-bg dark:bg-black pill-nav rounded-full px-6 py-3 w-full max-w-[1400px] flex justify-between items-center relative transition-colors duration-300 border border-gray-100 dark:border-white/10">
+      
+      <div class="flex-shrink-0">
+        <a href="index.html" class="group flex items-center">
+          <span class="font-display font-[600] text-xl tracking-widest uppercase text-dark-gray dark:text-white">
+            THERAPY<span class="text-gold">NOW.</span>
+          </span>
+        </a>
+      </div>
+
+      <div class="flex flex-shrink-0 items-center space-x-5">
+        <div class="flex items-center space-x-4">
+          <button id="theme-toggle" class="text-dark-gray dark:text-white hover:text-gold transition-colors flex items-center justify-center">
+            <i class="fas fa-moon dark:hidden text-[14px]"></i>
+            <i class="fas fa-sun hidden dark:inline text-[14px]"></i>
+          </button>
+          <div class="w-px h-4 bg-gray-300 dark:bg-gray-700"></div>
+          <button id="rtl-toggle" class="text-[11px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white hover:text-gold transition-colors">RTL</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="animated-circle-left absolute top-20 ltr:left-10 rtl:right-10 w-72 h-72 bg-gold/10 rounded-full blur-3xl animate-pulse pointer-events-none"></div>
+  <div class="animated-circle-right absolute bottom-20 ltr:right-10 rtl:left-10 w-96 h-96 bg-sand/10 dark:bg-white/5 rounded-full blur-3xl animate-pulse pointer-events-none" style="animation-delay: 1.5s;"></div>
+
+  <div class="flex-1 overflow-y-auto flex items-center justify-center p-4 pt-[100px]">
+    
+    <div class="w-full max-w-md bg-white dark:bg-[#111111] shadow-2xl p-8 md:p-10 rounded-3xl border border-gray-100 dark:border-white/5 relative z-10 animate-fade-in group">
+        
+        <div class="absolute top-0 left-0 w-full h-1.5 rounded-t-3xl bg-gradient-to-r from-gold to-transparent"></div>
+
+        <div class="text-center mb-10 mt-2">
+          <h2 class="font-display text-3xl font-[600] text-dark-gray dark:text-white uppercase tracking-tight mb-3">Welcome Back.</h2>
+          <p class="text-[10px] uppercase tracking-[0.2em] font-[600] text-gray-500 dark:text-gray-400">Sign in to access your wellness portal</p>
+        </div>
+
+        <form class="space-y-6" onsubmit="handleLogin(event)">
+
+          <div>
+              <label class="block text-[10px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white mb-3">
+                Email Address
+              </label>
+              <input 
+                type="email" 
+                required
+                placeholder="YOUR.EMAIL@EXAMPLE.COM"
+                class="w-full px-4 py-4 rounded-xl bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 text-dark-gray dark:text-white text-xs uppercase tracking-widest focus:outline-none focus:border-gold dark:focus:border-gold transition-all"
+              />
+          </div>
+
+          <div>
+              <label class="block text-[10px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white mb-3">
+                Password
+              </label>
+              <div class="relative">
+                <input 
+                    type="password" 
+                    id="password"
+                    required
+                    placeholder="ENTER YOUR PASSWORD"
+                    class="w-full px-4 py-4 rounded-xl bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 text-dark-gray dark:text-white text-xs uppercase tracking-widest focus:outline-none focus:border-gold dark:focus:border-gold transition-all"
+                />
+                <button 
+                    type="button" 
+                    onclick="togglePassword()"
+                    class="absolute ltr:right-4 rtl:left-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gold transition-colors"
+                >
+                    <i class="fas fa-eye text-sm" id="toggleIcon"></i>
+                </button>
+              </div>
+          </div>
+
+          <div class="flex items-center justify-between text-xs pt-2">
+              <label class="flex items-center cursor-pointer group-checkbox">
+                <input type="checkbox" class="w-4 h-4 rounded border-gray-300 text-gold focus:ring-0 focus:ring-offset-0 bg-transparent cursor-pointer">
+                <span class="ltr:ml-3 rtl:mr-3 text-gray-500 dark:text-gray-400 font-[600] uppercase tracking-widest cursor-pointer hover:text-gold transition-colors">Remember me</span>
+              </label>
+              <span class="text-gold font-[600] uppercase tracking-widest cursor-pointer hover:text-dark-gray dark:hover:text-white transition-colors">
+                Forgot pass?
+              </span>
+          </div>
+
+          <button 
+              type="submit"
+              class="w-full py-4 mt-4 rounded-xl bg-gold hover:bg-gold-hover text-white font-[600] uppercase tracking-widest text-xs transition-all duration-300 flex items-center justify-center space-x-2 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+          >
+              <span>Sign In</span>
+              <i class="fas fa-arrow-right text-[10px] ml-2"></i>
+          </button>
+
+          <div class="relative my-8">
+              <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-gray-200 dark:border-gray-800"></div>
+              </div>
+              <div class="relative flex justify-center text-[10px] uppercase tracking-widest font-[600]">
+                <span class="px-4 bg-white dark:bg-[#111111] text-gray-400">Or Continue With</span>
+              </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+              <button 
+                type="button"
+                class="flex items-center justify-center px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-gold dark:hover:border-gold transition-colors bg-transparent"
+              >
+                <svg class="w-4 h-4 ltr:mr-3 rtl:ml-3" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                </svg>
+                <span class="text-[10px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white">Google</span>
+              </button>
+
+              <button 
+                type="button"
+                class="flex items-center justify-center px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-gold dark:hover:border-gold transition-colors bg-transparent"
+              >
+                <i class="fab fa-facebook text-blue-600 text-lg ltr:mr-3 rtl:ml-3"></i>
+                <span class="text-[10px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white">Facebook</span>
+              </button>
+          </div>
+
+        </form>
+
+        <div class="mt-10 text-center text-xs font-[600] uppercase tracking-widest text-gray-500">
+          No Account? 
+          <a href="register.html" class="text-dark-gray dark:text-white hover:text-gold transition-colors ltr:ml-2 rtl:mr-2 border-b border-gold pb-0.5">
+              Sign Up
+          </a>
+        </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Toggle Password Visibility
+    function togglePassword() {
+      const passwordInput = document.getElementById('password');
+      const toggleIcon = document.getElementById('toggleIcon');
+
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.classList.remove('fa-eye');
+        toggleIcon.classList.add('fa-eye-slash');
+      } else {
+        passwordInput.type = 'password';
+        toggleIcon.classList.remove('fa-eye-slash');
+        toggleIcon.classList.add('fa-eye');
+      }
+    }
+
+    // Handle Login Submit (Simulation)
+    function handleLogin(event) {
+      event.preventDefault();
+
+      const button = event.target.querySelector('button[type="submit"]');
+      const icon = button.querySelector('i');
+      const span = button.querySelector('span');
+      
+      icon.className = 'fas fa-spinner fa-spin ml-2';
+      span.innerText = 'AUTHENTICATING...';
+      button.disabled = true;
+      button.classList.add('opacity-50', 'cursor-not-allowed');
+
+      // Simulate API call, then redirect
+      setTimeout(() => {
+        window.location.href = 'user-dashboard.html';
+      }, 1500);
+    }
+
+    // Theme Toggle Function
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+
+    function toggleTheme() {
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+    if (localStorage.getItem('theme') === 'dark') html.classList.add('dark');
+
+    // RTL Toggle Function
+    const rtlToggle = document.getElementById('rtl-toggle');
+
+    function toggleRTL() {
+      if (html.getAttribute('dir') === 'rtl') {
+        html.removeAttribute('dir');
+        localStorage.setItem('direction', 'ltr');
+      } else {
+        html.setAttribute('dir', 'rtl');
+        localStorage.setItem('direction', 'rtl');
+      }
+    }
+
+    if (rtlToggle) rtlToggle.addEventListener('click', toggleRTL);
+    if (localStorage.getItem('direction') === 'rtl') html.setAttribute('dir', 'rtl');
+  </script>
+
+</body>
+</html>

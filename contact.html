@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - TherapyNow</title>
+  <link rel="icon" type="image/jpeg" href="image\therapynow_logo.jpg">
+  <meta name="description" content="Get in touch with the expert clinical therapists at TherapyNow to book your consultation or ask any questions.">
+  <script src="tailwind.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Syne:wght@400;600&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = { 
+      darkMode: 'class', 
+      theme: { 
+        extend: { 
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['Syne', 'sans-serif'],
+          },
+          colors: { 
+            gold: '#26A69A',         // Mint Fresh
+            'gold-hover': '#111111', // Dark Gray
+            'dark-gray': '#171717',  // Neutral Dark Gray
+            sand: '#80CBC4',         // Light Mint
+            white: '#FFFFFF',        // Pure White
+            'off-white': '#E0F2F1',  // Mint Ice
+            'deep-bg': '#000000',    // Pure Black
+            black: '#000000',        // True Dark
+            'nav-bg': '#FFFFFF',
+          },
+          animation: {
+            'fade-in': 'fadeInUp 0.8s ease-out',
+          },
+          keyframes: {
+            fadeInUp: {
+              'from': { opacity: '0', transform: 'translateY(30px)' },
+              'to': { opacity: '1', transform: 'translateY(0)' }
+            }
+          }
+        } 
+      } 
+    }
+  </script>
+  
+  <style>
+    [dir="rtl"] { direction: rtl; }
+    body { overflow-x: hidden; }
+    
+    .pill-nav {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+    
+    /* Optional smooth transition for the map dark mode */
+    .map-container iframe {
+      transition: filter 0.5s ease-in-out;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased transition-colors duration-500 bg-off-white dark:bg-deep-bg flex flex-col min-h-screen text-dark-gray dark:text-white">
+
+  <div class="fixed w-full top-4 z-50 px-4 pointer-events-none flex justify-center">
+    <nav class="pointer-events-auto bg-nav-bg dark:bg-[#111111] pill-nav rounded-full px-6 py-3 w-full max-w-[1400px] flex justify-between items-center relative transition-colors duration-300 border border-gray-100 dark:border-white/10">
+      
+      <div class="flex-shrink-0">
+        <a href="index.html" class="group flex items-center">
+          <span class="font-display font-[600] text-xl tracking-widest uppercase text-dark-gray dark:text-white">
+            THERAPY<span class="text-gold">NOW.</span>
+          </span>
+        </a>
+      </div>
+
+      <div class="hidden xl:flex flex-1 justify-center items-center space-x-6 px-2">
+        
+        <div class="relative group">
+          <button class="text-[12px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white hover:text-gold transition-colors flex items-center whitespace-nowrap">
+            HOME <i class="fas fa-angle-down ml-1.5 text-[10px]"></i>
+          </button>
+          <div class="absolute top-full mt-4 left-0 w-48 bg-white dark:bg-[#111111] rounded-2xl shadow-2xl border border-gray-100 dark:border-white/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 overflow-hidden">
+            <a href="index.html" class="block px-6 py-4 text-xs font-[600] uppercase tracking-wider hover:bg-sand/20 hover:text-gold transition-colors">HOME PAGE 01</a>
+            <a href="home-2.html" class="block px-6 py-4 text-xs font-[600] uppercase tracking-wider hover:bg-sand/20 hover:text-gold transition-colors">HOME PAGE 02</a>
+          </div>
+        </div>
+
+        <a href="about.html" class="text-[12px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white hover:text-gold transition-colors whitespace-nowrap">ABOUT</a>
+        <a href="services.html" class="text-[12px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white hover:text-gold transition-colors whitespace-nowrap">SERVICES</a>
+        <a href="pricing.html" class="text-[12px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white hover:text-gold transition-colors whitespace-nowrap">PRICING</a>
+        <a href="treatments.html" class="text-[12px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white hover:text-gold transition-colors whitespace-nowrap">TREATMENTS</a>
+        <a href="contact.html" class="text-[12px] font-[600] uppercase tracking-widest text-gold transition-colors whitespace-nowrap">CONTACT</a>
+        
+        <div class="relative group">
+          <button class="text-[12px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white hover:text-gold transition-colors flex items-center whitespace-nowrap">
+            DASHBOARD <i class="fas fa-angle-down ml-1.5 text-[10px]"></i>
+          </button>
+          <div class="absolute top-full mt-4 right-0 w-56 bg-white dark:bg-[#111111] rounded-2xl shadow-2xl border border-gray-100 dark:border-white/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 overflow-hidden">
+            <a href="admin-dashboard.html" class="flex items-center px-6 py-4 text-xs font-[600] uppercase tracking-wider hover:bg-sand/20 hover:text-gold transition-colors">
+              <i class="fas fa-user-shield w-5 text-gold/70"></i> Admin Dashboard
+            </a>
+            <a href="user-dashboard.html" class="flex items-center px-6 py-4 text-xs font-[600] uppercase tracking-wider hover:bg-sand/20 hover:text-gold transition-colors border-t border-gray-50 dark:border-white/5">
+              <i class="fas fa-user w-5 text-gold/70"></i> User Dashboard
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden xl:flex flex-shrink-0 items-center space-x-5">
+        
+        <button type="button" onclick="window.location.href='login.html'" class="text-[12px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white hover:text-gold transition-colors whitespace-nowrap">
+          LOGIN
+        </button>
+        
+        <a href="register.html" class="bg-gold text-white hover:bg-gold-hover px-6 py-2.5 rounded-full text-[11px] font-[600] uppercase tracking-widest transition-all duration-300 flex items-center whitespace-nowrap">
+          <span>REGISTER</span>
+          <i class="fas fa-arrow-right text-[10px] ml-2"></i>
+        </a>
+
+        <div class="w-px h-5 bg-gray-300 dark:bg-gray-600"></div>
+
+        <div class="flex items-center space-x-3">
+          <button id="theme-toggle" class="text-dark-gray dark:text-white hover:text-gold transition-colors flex items-center justify-center">
+            <i class="fas fa-moon dark:hidden text-[14px]"></i>
+            <i class="fas fa-sun hidden dark:inline text-[14px]"></i>
+          </button>
+          <button id="rtl-toggle" class="text-[11px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white hover:text-gold transition-colors">RTL</button>
+        </div>
+      </div>
+
+      <div class="xl:hidden flex items-center">
+        <button id="mobile-menu-button" class="w-10 h-10 bg-gray-100 dark:bg-white/10 rounded-full flex items-center justify-center text-dark-gray dark:text-white">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path>
+            <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <div id="mobile-menu" class="hidden xl:hidden fixed inset-0 z-40 bg-white/95 dark:bg-black/95 backdrop-blur-3xl pt-32 pb-10 px-6 overflow-y-auto">
+    <div class="flex flex-col h-full justify-between max-w-sm mx-auto">
+      <div class="space-y-4">
+        
+        <div>
+          <button id="mobile-home-dropdown" class="w-full flex items-center justify-between py-2 text-2xl font-display font-[600] uppercase tracking-wide">
+            <span>Home</span>
+            <i class="fas fa-plus text-base text-gold" id="mobile-home-icon"></i>
+          </button>
+          <div id="mobile-home-menu" class="hidden pt-3 pb-2 space-y-3 pl-4 border-l-2 border-gold">
+            <a href="index.html" class="block text-base font-[600] opacity-70 hover:opacity-100 hover:text-gold uppercase tracking-wider">01. Home Page</a>
+            <a href="home-2.html" class="block text-base font-[600] opacity-70 hover:opacity-100 hover:text-gold uppercase tracking-wider">02. Home Page</a>
+          </div>
+        </div>
+
+        <a href="about.html" class="block py-2 text-2xl font-display font-[600] uppercase tracking-wide hover:text-gold">About</a>
+        <a href="services.html" class="block py-2 text-2xl font-display font-[600] uppercase tracking-wide hover:text-gold">Services</a>
+        <a href="pricing.html" class="block py-2 text-2xl font-display font-[600] uppercase tracking-wide hover:text-gold">Pricing</a>
+        <a href="treatments.html" class="block py-2 text-2xl font-display font-[600] uppercase tracking-wide hover:text-gold">Treatments</a>
+        <a href="contact.html" class="block py-2 text-2xl font-display font-[600] text-gold uppercase tracking-wide">Contact</a>
+        
+        <div>
+          <button id="mobile-dashboard-dropdown" class="w-full flex items-center justify-between py-2 text-2xl font-display font-[600] uppercase tracking-wide">
+            <span>Dashboard</span>
+            <i class="fas fa-plus text-base text-gold" id="mobile-dashboard-icon"></i>
+          </button>
+          <div id="mobile-dashboard-menu" class="hidden pt-3 pb-2 space-y-4 pl-4 border-l-2 border-gold mt-2">
+            <a href="admin-dashboard.html" class="flex items-center text-base font-[600] opacity-70 hover:opacity-100 hover:text-gold uppercase tracking-wider">
+              <i class="fas fa-user-shield w-6 text-gold"></i> Admin
+            </a>
+            <a href="user-dashboard.html" class="flex items-center text-base font-[600] opacity-70 hover:opacity-100 hover:text-gold uppercase tracking-wider">
+              <i class="fas fa-user w-6 text-gold"></i> User
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 space-y-3">
+        <button type="button" onclick="window.location.href='login.html'" class="flex items-center justify-center w-full bg-gray-100 dark:bg-white/5 px-4 py-4 rounded-full font-[600] uppercase tracking-widest text-xs">
+          Login
+        </button>
+        <a href="register.html" class="flex items-center justify-center w-full bg-gold text-white px-4 py-4 rounded-full font-[600] uppercase tracking-widest text-xs space-x-2">
+          <span>Register</span>
+          <i class="fas fa-arrow-right text-[10px]"></i>
+        </a>
+        
+        <div class="flex justify-center space-x-6 pt-8 pb-12">
+          <button id="mobile-theme-toggle" class="opacity-70 hover:opacity-100 hover:text-gold text-xs font-[600] uppercase tracking-widest flex items-center">
+            <i class="fas fa-moon mr-2 dark:hidden"></i><i class="fas fa-sun mr-2 hidden dark:inline"></i> Theme
+          </button>
+          <div class="w-px h-4 bg-gray-300 dark:bg-gray-700"></div>
+          <button id="mobile-rtl-toggle" class="opacity-70 hover:opacity-100 hover:text-gold text-xs font-[600] uppercase tracking-widest flex items-center">
+            <i class="fas fa-language mr-2"></i> RTL
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="flex-grow flex flex-col pt-32">
+
+    <section class="min-h-screen flex items-center justify-center text-white relative overflow-hidden bg-cover bg-center bg-no-repeat w-full -mt-32 pt-32" style="background-image: url('image/pexels-tima-miroshnichenko-6187653.jpg');">
+      
+      <div class="absolute inset-0 bg-black/60 z-0"></div>
+
+      <div class="absolute top-0 right-0 w-64 h-64 bg-gold/20 rounded-full blur-3xl z-0 pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 w-80 h-80 bg-sand/20 rounded-full blur-3xl z-0 pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center animate-fade-in w-full">
+        <h1 class="font-display text-4xl md:text-5xl lg:text-7xl font-[600] tracking-tight mb-6 uppercase text-white drop-shadow-xl">
+          Get in <span class="text-gold">Touch.</span>
+        </h1>
+        <p class="text-lg md:text-2xl text-white max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+          Have a question about our therapies or ready to book your clinical consultation? We are here to guide your recovery.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-24 bg-off-white dark:bg-deep-bg transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid lg:grid-cols-2 gap-16">
+          
+          <div class="space-y-12">
+            <div>
+              <h2 class="font-display text-3xl font-[600] text-dark-gray dark:text-white uppercase mb-4 tracking-tight">Our Clinic</h2>
+              <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
+                Step into a world of dedicated wellness. Our front desk team is available Monday through Saturday to answer any questions regarding your therapeutic needs.
+              </p>
+            </div>
+            
+            <div class="space-y-8">
+              <div class="flex items-start">
+                <div class="w-12 h-12 bg-white dark:bg-[#111111] border border-gray-200 dark:border-white/10 rounded-full flex items-center justify-center text-gold flex-shrink-0 shadow-sm mt-1">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="ml-6">
+                  <h4 class="font-[600] text-lg text-dark-gray dark:text-white uppercase tracking-wider mb-1">Location</h4>
+                  <p class="text-gray-500 dark:text-gray-400">452 Wellness Blvd, Tech District<br>San Francisco, CA 94103</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="w-12 h-12 bg-white dark:bg-[#111111] border border-gray-200 dark:border-white/10 rounded-full flex items-center justify-center text-gold flex-shrink-0 shadow-sm mt-1">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="ml-6">
+                  <h4 class="font-[600] text-lg text-dark-gray dark:text-white uppercase tracking-wider mb-1">Direct Line</h4>
+                  <a href="tel:+15551234567" class="text-gray-500 dark:text-gray-400 hover:text-gold transition-colors inline-block">(555) 123-4567</a>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="w-12 h-12 bg-white dark:bg-[#111111] border border-gray-200 dark:border-white/10 rounded-full flex items-center justify-center text-gold flex-shrink-0 shadow-sm mt-1">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="ml-6">
+                  <h4 class="font-[600] text-lg text-dark-gray dark:text-white uppercase tracking-wider mb-1">Email Us</h4>
+                  <a href="mailto:info@therapynow.com" class="text-gray-500 dark:text-gray-400 hover:text-gold transition-colors inline-block">info@therapynow.com</a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-200 dark:border-white/10">
+              <h4 class="font-[600] text-sm text-dark-gray dark:text-white uppercase tracking-[0.2em] mb-6">Follow Our Journey</h4>
+              <div class="flex space-x-4">
+                <a href="#" class="w-10 h-10 border border-gray-300 dark:border-gray-700 hover:border-gold hover:text-gold text-gray-500 dark:text-gray-400 flex items-center justify-center rounded-full transition-all duration-300">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="w-10 h-10 border border-gray-300 dark:border-gray-700 hover:border-gold hover:text-gold text-gray-500 dark:text-gray-400 flex items-center justify-center rounded-full transition-all duration-300">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="w-10 h-10 border border-gray-300 dark:border-gray-700 hover:border-gold hover:text-gold text-gray-500 dark:text-gray-400 flex items-center justify-center rounded-full transition-all duration-300">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-[#111111] p-10 rounded-[2rem] shadow-xl border border-gray-100 dark:border-white/5">
+            <h3 class="font-display text-2xl font-[600] text-dark-gray dark:text-white mb-8 uppercase tracking-tight">Send a Message</h3>
+            
+            <form class="space-y-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                  <label class="text-xs font-[600] text-gray-500 dark:text-gray-400 uppercase tracking-widest block">Full Name</label>
+                  <input type="text" class="w-full bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-dark-gray dark:text-white focus:outline-none focus:border-gold dark:focus:border-gold transition-colors" placeholder="John Doe">
+                </div>
+                <div class="space-y-2">
+                  <label class="text-xs font-[600] text-gray-500 dark:text-gray-400 uppercase tracking-widest block">Email Address</label>
+                  <input type="email" class="w-full bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-dark-gray dark:text-white focus:outline-none focus:border-gold dark:focus:border-gold transition-colors" placeholder="john@example.com">
+                </div>
+              </div>
+              
+              <div class="space-y-2">
+                <label class="text-xs font-[600] text-gray-500 dark:text-gray-400 uppercase tracking-widest block">Subject</label>
+                <input type="text" class="w-full bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-dark-gray dark:text-white focus:outline-none focus:border-gold dark:focus:border-gold transition-colors" placeholder="How can we help?">
+              </div>
+              
+              <div class="space-y-2">
+                <label class="text-xs font-[600] text-gray-500 dark:text-gray-400 uppercase tracking-widest block">Message</label>
+                <textarea rows="5" class="w-full bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3 text-dark-gray dark:text-white focus:outline-none focus:border-gold dark:focus:border-gold transition-colors resize-none" placeholder="Enter your message here..."></textarea>
+              </div>
+              
+              <button type="button" class="w-full bg-gold hover:bg-gold-hover text-white font-[600] text-sm uppercase tracking-widest py-4 rounded-xl transition-all duration-300 shadow-md flex items-center justify-center">
+                Submit Request <i class="fas fa-paper-plane ml-3"></i>
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white dark:bg-black transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="text-gold font-[600] tracking-wider uppercase text-sm">Find Us</span>
+          <h2 class="font-display text-3xl md:text-4xl font-[600] mt-2 uppercase tracking-tight">Our Location</h2>
+        </div>
+        <div class="map-container rounded-3xl overflow-hidden shadow-2xl border border-gray-100 dark:border-white/5 h-[400px] md:h-[500px] w-full relative z-10">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100939.98555098464!2d-122.5076401!3d37.7578149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            class="w-full h-full filter dark:invert dark:hue-rotate-180 dark:contrast-75"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-black text-white pt-24 pb-12 mt-auto relative z-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        
+        <div>
+          <h3 class="font-display text-3xl font-[600] tracking-tight uppercase mb-6">Therapy<span class="text-gold">Now.</span></h3>
+          <p class="text-gray-400 mb-8 font-normal leading-relaxed text-base">
+            Empowering you to feel your absolute best through clinical, personalized massage therapy and advanced bodywork.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="w-10 h-10 border border-white/20 hover:border-gold hover:bg-gold hover:text-white flex items-center justify-center transition-all duration-300 rounded-full">
+              <i class="fab fa-facebook-f text-sm"></i>
+            </a>
+            <a href="#" class="w-10 h-10 border border-white/20 hover:border-gold hover:bg-gold hover:text-white flex items-center justify-center transition-all duration-300 rounded-full">
+              <i class="fab fa-instagram text-sm"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-sm uppercase tracking-[0.2em] font-[600] mb-8 text-white">Quick Links</h4>
+          <ul class="space-y-4">
+            <li><a href="index.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Home</a></li>
+            <li><a href="about.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Our Clinic</a></li>
+            <li><a href="therapists.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Our Therapists</a></li>
+            <li><a href="pricing.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Memberships</a></li>
+            <li><a href="treatments.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Treatments</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm uppercase tracking-[0.2em] font-[600] mb-8 text-white">Support</h4>
+          <ul class="space-y-4">
+            <li><a href="support.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Installation Questions</a></li>
+            <li><a href="pricing-questions.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Pricing Questions</a></li>
+            <li><a href="warranty.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Warranty Details</a></li>
+            <li><a href="tech-support.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">App & Technical Support</a></li>
+            <li><a href="contact.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Contact Support</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm uppercase tracking-[0.2em] font-[600] mb-8 text-white">Contact Us</h4>
+          <ul class="space-y-6">
+            <li class="flex items-start group">
+              <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center mr-4 group-hover:bg-gold transition-colors">
+                <i class="fas fa-map-marker-alt text-gold group-hover:text-white text-sm transition-colors"></i>
+              </div>
+              <span class="text-sm text-gray-400 font-medium mt-1 w-48">452 Wellness Blvd, Tech District</span>
+            </li>
+            <li class="flex items-center group">
+              <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center mr-4 group-hover:bg-gold transition-colors">
+                <i class="fas fa-phone text-gold group-hover:text-white text-sm transition-colors"></i>
+              </div>
+              <a href="tel:+15551234567" class="text-sm text-gray-400 hover:text-white transition-colors font-medium">(555) 123-4567</a>
+            </li>
+            <li class="flex items-center group">
+              <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center mr-4 group-hover:bg-gold transition-colors">
+                <i class="fas fa-envelope text-gold group-hover:text-white text-sm transition-colors"></i>
+              </div>
+              <a href="mailto:info@therapynow.com" class="text-sm text-gray-400 hover:text-white transition-colors font-medium">info@therapynow.com</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-500 text-xs tracking-widest uppercase mb-4 md:mb-0 font-[600]">
+          © 2026 TherapyNow. All rights reserved.
+        </p>
+        <div class="flex space-x-6">
+          <a href="login.html" class="text-gray-500 hover:text-gold text-xs tracking-widest uppercase font-[600] transition-colors duration-300">Client Login</a>
+          <a href="#" class="text-gray-500 hover:text-gold text-xs tracking-widest uppercase font-[600] transition-colors duration-300">Privacy</a>
+          <a href="#" class="text-gray-500 hover:text-gold text-xs tracking-widest uppercase font-[600] transition-colors duration-300">Terms</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+    const html = document.documentElement;
+
+    function toggleTheme() {
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+    if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
+    if (localStorage.getItem('theme') === 'dark') html.classList.add('dark');
+
+    // RTL Toggle
+    const rtlToggle = document.getElementById('rtl-toggle');
+    const mobileRtlToggle = document.getElementById('mobile-rtl-toggle');
+
+    function toggleRTL() {
+      if (html.getAttribute('dir') === 'rtl') {
+        html.removeAttribute('dir');
+        localStorage.setItem('direction', 'ltr');
+      } else {
+        html.setAttribute('dir', 'rtl');
+        localStorage.setItem('direction', 'rtl');
+      }
+    }
+
+    if (rtlToggle) rtlToggle.addEventListener('click', toggleRTL);
+    if (mobileRtlToggle) mobileRtlToggle.addEventListener('click', toggleRTL);
+    if (localStorage.getItem('direction') === 'rtl') html.setAttribute('dir', 'rtl');
+
+    // Mobile Menu Toggle - Updated for full screen overlay
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+      
+      // Prevent body scroll when menu is open
+      if(!mobileMenu.classList.contains('hidden')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Mobile Dropdowns Toggle Function
+    function setupMobileDropdown(dropdownId, menuId, iconId) {
+      const dropdown = document.getElementById(dropdownId);
+      const menu = document.getElementById(menuId);
+      const icon = document.getElementById(iconId);
+      
+      if(dropdown && menu && icon) {
+        dropdown.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+          if(menu.classList.contains('hidden')) {
+            icon.classList.remove('fa-minus');
+            icon.classList.add('fa-plus');
+          } else {
+            icon.classList.remove('fa-plus');
+            icon.classList.add('fa-minus');
+          }
+        });
+      }
+    }
+
+    // Initialize dropdowns
+    setupMobileDropdown('mobile-home-dropdown', 'mobile-home-menu', 'mobile-home-icon');
+    setupMobileDropdown('mobile-dashboard-dropdown', 'mobile-dashboard-menu', 'mobile-dashboard-icon');
+
+  </script>
+</body>
+</html>

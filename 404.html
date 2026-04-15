@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found - TherapyNow</title>
+  <link rel="icon" type="image/jpeg" href="image\therapynow_logo.jpg">
+  <meta name="description" content="The page you are looking for cannot be found.">
+  <script src="tailwind.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Syne:wght@400;600&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['Syne', 'sans-serif'],
+          },
+          colors: {
+            gold: '#26A69A',         // Mint Fresh
+            'gold-hover': '#004D40', // Dark Forest
+            'dark-gray': '#004D40',  // Dark Forest
+            sand: '#80CBC4',         // Light Mint
+            white: '#FFFFFF',        // Pure White
+            'off-white': '#E0F2F1',  // Mint Ice
+            'deep-bg': '#00332A',    // Deeper Forest
+            black: '#001A15',        // True Dark
+            'nav-bg': '#FFFFFF'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    /* RTL Support */
+    [dir="rtl"] .animated-circle-left {
+      left: auto;
+      right: 2.5rem;
+    }
+
+    [dir="rtl"] .animated-circle-right {
+      right: auto;
+      left: 2.5rem;
+    }
+
+    /* Ensure no horizontal scroll */
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    .pill-nav {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased bg-off-white dark:bg-deep-bg min-h-screen flex flex-col transition-colors duration-500 text-dark-gray dark:text-white">
+
+  <div class="fixed w-full top-4 z-50 px-4 pointer-events-none flex justify-center">
+    <nav class="pointer-events-auto bg-nav-bg dark:bg-[#00332A] pill-nav rounded-full px-6 py-3 w-full max-w-[1400px] flex justify-between items-center relative transition-colors duration-300 border border-gray-100 dark:border-white/10">
+      
+      <div class="flex-shrink-0">
+        <a href="index.html" class="group flex items-center">
+          <span class="font-display font-[600] text-xl tracking-widest uppercase text-dark-gray dark:text-white">
+            THERAPY<span class="text-gold">NOW.</span>
+          </span>
+        </a>
+      </div>
+
+      <div class="hidden xl:flex flex-1 justify-center items-center space-x-6 px-2">
+        <a href="index.html" class="text-[12px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white hover:text-gold transition-colors whitespace-nowrap">HOME</a>
+        <a href="about.html" class="text-[12px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white hover:text-gold transition-colors whitespace-nowrap">ABOUT</a>
+        <a href="services.html" class="text-[12px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white hover:text-gold transition-colors whitespace-nowrap">SERVICES</a>
+        <a href="pricing.html" class="text-[12px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white hover:text-gold transition-colors whitespace-nowrap">PRICING</a>
+        <a href="treatments.html" class="text-[12px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white hover:text-gold transition-colors whitespace-nowrap">TREATMENTS</a>
+        <a href="contact.html" class="text-[12px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white hover:text-gold transition-colors whitespace-nowrap">CONTACT</a>
+      </div>
+
+      <div class="flex flex-shrink-0 items-center space-x-5">
+        <div class="flex items-center space-x-4">
+          <button id="theme-toggle" class="text-dark-gray dark:text-white hover:text-gold transition-colors flex items-center justify-center">
+            <i class="fas fa-moon dark:hidden text-[14px]"></i>
+            <i class="fas fa-sun hidden dark:inline text-[14px]"></i>
+          </button>
+          <div class="w-px h-4 bg-gray-300 dark:bg-gray-700"></div>
+          <button id="rtl-toggle" class="text-[11px] font-[600] uppercase tracking-widest text-dark-gray dark:text-white hover:text-gold transition-colors">RTL</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <main class="flex-grow flex items-center justify-center relative px-4 pt-32 pb-20">
+    <div class="animated-circle-left absolute top-1/4 ltr:left-10 rtl:right-10 w-72 h-72 bg-gold/10 rounded-full blur-3xl animate-pulse pointer-events-none"></div>
+    <div class="animated-circle-right absolute bottom-1/4 ltr:right-10 rtl:left-10 w-96 h-96 bg-sand/10 dark:bg-white/5 rounded-full blur-3xl animate-pulse pointer-events-none" style="animation-delay: 1.5s;"></div>
+
+    <div class="relative z-10 text-center max-w-2xl mx-auto animate-fade-in">
+      <h1 class="font-display text-[150px] leading-none font-[600] text-gold opacity-80 mb-4 select-none">404</h1>
+      <h2 class="font-display text-4xl md:text-5xl font-[600] uppercase tracking-tight mb-6">You've Lost Your Balance.</h2>
+      <p class="text-lg text-gray-500 dark:text-gray-400 mb-10 leading-relaxed max-w-md mx-auto">
+        It looks like you've wandered off the path. The page you are looking for doesn't exist, was moved, or is temporarily unavailable.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="index.html" class="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 bg-gold hover:bg-gold-hover text-white font-[600] uppercase tracking-widest text-xs transition-all duration-300 rounded-full shadow-lg transform hover:-translate-y-1">
+          <i class="fas fa-home mr-3"></i> Back To Homepage
+        </a>
+        <a href="contact.html" class="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 bg-transparent border border-gray-300 dark:border-gray-700 text-dark-gray dark:text-white hover:border-gold hover:text-gold font-[600] uppercase tracking-widest text-xs transition-all duration-300 rounded-full transform hover:-translate-y-1">
+          Contact Support
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-[#001A15] text-white pt-24 pb-12 mt-auto relative z-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        
+        <div>
+          <h3 class="font-display text-3xl font-[600] tracking-tight uppercase mb-6">Therapy<span class="text-gold">Now.</span></h3>
+          <p class="text-gray-400 mb-8 font-normal leading-relaxed text-base">
+            Empowering you to feel your absolute best through clinical, personalized massage therapy and advanced bodywork.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="w-10 h-10 border border-white/20 hover:border-gold hover:bg-gold hover:text-white flex items-center justify-center transition-all duration-300 rounded-full">
+              <i class="fab fa-facebook-f text-sm"></i>
+            </a>
+            <a href="#" class="w-10 h-10 border border-white/20 hover:border-gold hover:bg-gold hover:text-white flex items-center justify-center transition-all duration-300 rounded-full">
+              <i class="fab fa-instagram text-sm"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-sm uppercase tracking-[0.2em] font-[600] mb-8 text-white">Quick Links</h4>
+          <ul class="space-y-4">
+            <li><a href="index.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Home</a></li>
+            <li><a href="about.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Our Clinic</a></li>
+            <li><a href="therapists.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Our Therapists</a></li>
+            <li><a href="pricing.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Memberships</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm uppercase tracking-[0.2em] font-[600] mb-8 text-white">Support</h4>
+          <ul class="space-y-4">
+            <li><a href="support.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Installation Questions</a></li>
+            <li><a href="pricing-questions.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Pricing Questions</a></li>
+            <li><a href="warranty.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">Warranty Details</a></li>
+            <li><a href="tech-support.html" class="text-sm text-gray-400 hover:text-gold hover:translate-x-1 inline-block transition-all duration-300">App & Technical Support</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm uppercase tracking-[0.2em] font-[600] mb-8 text-white">Contact Us</h4>
+          <ul class="space-y-6">
+            <li class="flex items-start group">
+              <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center mr-4 group-hover:bg-gold transition-colors">
+                <i class="fas fa-map-marker-alt text-gold group-hover:text-white text-sm transition-colors"></i>
+              </div>
+              <span class="text-sm text-gray-400 font-normal mt-1 w-48">452 Wellness Blvd, Tech District</span>
+            </li>
+            <li class="flex items-center group">
+              <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center mr-4 group-hover:bg-gold transition-colors">
+                <i class="fas fa-phone text-gold group-hover:text-white text-sm transition-colors"></i>
+              </div>
+              <a href="tel:+15551234567" class="text-sm text-gray-400 hover:text-white transition-colors font-normal">(555) 123-4567</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-500 text-xs tracking-widest uppercase mb-4 md:mb-0 font-[600]">
+          © 2026 TherapyNow. All rights reserved.
+        </p>
+        <div class="flex space-x-6">
+          <a href="login.html" class="text-gray-500 hover:text-gold text-xs tracking-widest uppercase font-[600] transition-colors duration-300">Client Login</a>
+          <a href="#" class="text-gray-500 hover:text-gold text-xs tracking-widest uppercase font-[600] transition-colors duration-300">Privacy</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Theme Toggle Function
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+
+    function toggleTheme() {
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+    if (localStorage.getItem('theme') === 'dark') html.classList.add('dark');
+
+    // RTL Toggle Function
+    const rtlToggle = document.getElementById('rtl-toggle');
+
+    function toggleRTL() {
+      if (html.getAttribute('dir') === 'rtl') {
+        html.removeAttribute('dir');
+        localStorage.setItem('direction', 'ltr');
+      } else {
+        html.setAttribute('dir', 'rtl');
+        localStorage.setItem('direction', 'rtl');
+      }
+    }
+
+    if (rtlToggle) rtlToggle.addEventListener('click', toggleRTL);
+    if (localStorage.getItem('direction') === 'rtl') html.setAttribute('dir', 'rtl');
+  </script>
+
+</body>
+</html>
