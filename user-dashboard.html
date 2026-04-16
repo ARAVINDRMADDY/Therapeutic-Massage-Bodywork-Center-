@@ -74,6 +74,16 @@
     .pill-nav {
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     }
+
+    /* Animation for tab switching */
+    .fade-in {
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body class="font-sans antialiased bg-off-white dark:bg-deep-bg text-dark-gray dark:text-white transition-colors duration-300">
@@ -94,40 +104,39 @@
 
       <nav class="flex-1 overflow-y-auto py-8 space-y-2 scrollbar-thin">
         
-        <p class="px-8 text-[10px] font-[600] text-gray-400 dark:text-gray-500 uppercase tracking-[0.2em] mb-4">Overview</p>
+        <p class="px-8 text-[10px] font-[600] text-gray-400 dark:text-gray-500 uppercase tracking-[0.2em] mb-4">Dashboard Filters</p>
         
-        <a href="user-dashboard.html" class="flex items-center space-x-4 rtl:space-x-reverse px-8 py-3 bg-white/5 border-l-2 border-gold text-gold transition-all duration-300 group">
+        <button data-target="section-overview" class="nav-btn w-full flex items-center space-x-4 rtl:space-x-reverse px-8 py-3 bg-white/5 border-l-2 border-gold text-gold transition-all duration-300 group">
           <i class="fas fa-home w-5 text-center"></i>
-          <span class="text-xs uppercase tracking-widest font-[600]">Dashboard</span>
-        </a>
+          <span class="text-xs uppercase tracking-widest font-[600]">Overview</span>
+        </button>
 
-        <a href="#" class="flex items-center space-x-4 rtl:space-x-reverse px-8 py-3 text-gray-300 dark:text-gray-400 border-l-2 border-transparent hover:border-gold hover:text-gold hover:bg-white/5 transition-all duration-300 group">
-          <i class="fas fa-file-medical w-5 text-center transition-colors"></i>
-          <span class="text-xs uppercase tracking-widest font-[600]">Wellness Plan</span>
-        </a>
+        <button data-target="section-analytics" class="nav-btn w-full flex items-center space-x-4 rtl:space-x-reverse px-8 py-3 text-gray-300 dark:text-gray-400 border-l-2 border-transparent hover:border-gold hover:text-gold hover:bg-white/5 transition-all duration-300 group">
+          <i class="fas fa-chart-pie w-5 text-center transition-colors"></i>
+          <span class="text-xs uppercase tracking-widest font-[600]">Analytics</span>
+        </button>
 
-        <a href="#" class="flex items-center space-x-4 rtl:space-x-reverse px-8 py-3 text-gray-300 dark:text-gray-400 border-l-2 border-transparent hover:border-gold hover:text-gold hover:bg-white/5 transition-all duration-300 group">
-          <i class="fas fa-history w-5 text-center transition-colors"></i>
-          <span class="text-xs uppercase tracking-widest font-[600]">Treatment History</span>
-        </a>
+        <button data-target="section-updates" class="nav-btn w-full flex items-center space-x-4 rtl:space-x-reverse px-8 py-3 text-gray-300 dark:text-gray-400 border-l-2 border-transparent hover:border-gold hover:text-gold hover:bg-white/5 transition-all duration-300 group">
+          <i class="fas fa-bell w-5 text-center transition-colors"></i>
+          <span class="text-xs uppercase tracking-widest font-[600]">Updates</span>
+        </button>
 
-        <p class="px-8 text-[10px] font-[600] text-gray-400 dark:text-gray-500 uppercase tracking-[0.2em] mt-10 mb-4">Account</p>
-
-        <a href="#" class="flex items-center space-x-4 rtl:space-x-reverse px-8 py-3 text-gray-300 dark:text-gray-400 border-l-2 border-transparent hover:border-gold hover:text-gold hover:bg-white/5 transition-all duration-300 group">
+        <button data-target="section-invoices" class="nav-btn w-full flex items-center space-x-4 rtl:space-x-reverse px-8 py-3 text-gray-300 dark:text-gray-400 border-l-2 border-transparent hover:border-gold hover:text-gold hover:bg-white/5 transition-all duration-300 group">
           <i class="fas fa-file-invoice-dollar w-5 text-center transition-colors"></i>
           <span class="text-xs uppercase tracking-widest font-[600]">Invoices</span>
           <span class="ltr:ml-auto rtl:mr-auto bg-gold text-white text-[10px] font-[600] px-2 py-0.5 rounded-full">1 Due</span>
-        </a>
+        </button>
 
-        <a href="#" class="flex items-center space-x-4 rtl:space-x-reverse px-8 py-3 text-gray-300 dark:text-gray-400 border-l-2 border-transparent hover:border-gold hover:text-gold hover:bg-white/5 transition-all duration-300 group">
+        <button data-target="section-wellness" class="nav-btn w-full flex items-center space-x-4 rtl:space-x-reverse px-8 py-3 text-gray-300 dark:text-gray-400 border-l-2 border-transparent hover:border-gold hover:text-gold hover:bg-white/5 transition-all duration-300 group">
+          <i class="fas fa-file-medical w-5 text-center transition-colors"></i>
+          <span class="text-xs uppercase tracking-widest font-[600]">Wellness Plan</span>
+        </button>
+
+        <button data-target="section-appointments" class="nav-btn w-full flex items-center space-x-4 rtl:space-x-reverse px-8 py-3 text-gray-300 dark:text-gray-400 border-l-2 border-transparent hover:border-gold hover:text-gold hover:bg-white/5 transition-all duration-300 group">
           <i class="fas fa-calendar-check w-5 text-center transition-colors"></i>
           <span class="text-xs uppercase tracking-widest font-[600]">Appointments</span>
-        </a>
+        </button>
 
-        <a href="#" class="flex items-center space-x-4 rtl:space-x-reverse px-8 py-3 text-gray-300 dark:text-gray-400 border-l-2 border-transparent hover:border-gold hover:text-gold hover:bg-white/5 transition-all duration-300 group">
-          <i class="fas fa-headset w-5 text-center transition-colors"></i>
-          <span class="text-xs uppercase tracking-widest font-[600]">Message Therapist</span>
-        </a>
       </nav>
 
       <div class="p-6 border-t border-gray-800 dark:border-white/10 bg-dark-gray dark:bg-[#1A1A1A]">
@@ -151,7 +160,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
           </button>
-          <h2 class="text-[12px] font-[600] tracking-widest uppercase text-dark-gray dark:text-white truncate hidden sm:block">Welcome Back, Emily</h2>
+          <h2 id="header-title" class="text-[12px] font-[600] tracking-widest uppercase text-dark-gray dark:text-white truncate hidden sm:block">Dashboard Overview</h2>
         </div>
 
         <div class="flex items-center gap-5">
@@ -177,82 +186,84 @@
 
       <main class="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth">
         
-        <div class="bg-white dark:bg-[#111111] rounded-3xl shadow-sm border border-gray-100 dark:border-white/5 p-6 md:p-8 mb-8 relative group hover:border-gold transition-colors">
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
-            <div>
-              <p class="text-[10px] text-gray-500 dark:text-gray-400 font-[600] uppercase tracking-widest mb-2">Membership Status</p>
-              <h3 class="font-display text-2xl md:text-3xl font-[600] text-dark-gray dark:text-white uppercase tracking-tight">Recovery Pro Plan</h3>
+        <div id="section-overview" class="content-section fade-in block">
+          
+          <div class="bg-white dark:bg-[#111111] rounded-3xl shadow-sm border border-gray-100 dark:border-white/5 p-6 md:p-8 mb-8 relative group hover:border-gold transition-colors">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+              <div>
+                <p class="text-[10px] text-gray-500 dark:text-gray-400 font-[600] uppercase tracking-widest mb-2">Membership Status</p>
+                <h3 class="font-display text-2xl md:text-3xl font-[600] text-dark-gray dark:text-white uppercase tracking-tight">Recovery Pro Plan</h3>
+              </div>
+              <div class="border border-gray-100 dark:border-white/10 rounded-2xl px-6 py-3 text-center bg-gray-50 dark:bg-[#1A1A1A]">
+                <span class="block text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400 font-[600] mb-1">Recovery Progress</span>
+                <span class="block text-2xl font-[600] text-gold">60%</span>
+              </div>
             </div>
-            <div class="border border-gray-100 dark:border-white/10 rounded-2xl px-6 py-3 text-center bg-gray-50 dark:bg-[#1A1A1A]">
-              <span class="block text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400 font-[600] mb-1">Recovery Progress</span>
-              <span class="block text-2xl font-[600] text-gold">60%</span>
+
+            <div class="relative">
+              <div class="w-full h-1.5 bg-gray-200 dark:bg-white/10 mb-4 rounded-full overflow-hidden">
+                <div class="h-full bg-gold transition-all duration-1000 rounded-full" style="width: 60%"></div>
+              </div>
+              <div class="flex justify-between text-[9px] sm:text-[10px] uppercase tracking-widest font-[600] text-gray-400">
+                <span class="text-gold">Evaluation</span>
+                <span class="text-gold">Deep Tissue</span>
+                <span class="text-dark-gray dark:text-white">Myofascial</span>
+                <span class="hidden sm:inline">Re-Assessment</span>
+                <span>Maintenance</span>
+              </div>
             </div>
           </div>
 
-          <div class="relative">
-            <div class="w-full h-1.5 bg-gray-200 dark:bg-white/10 mb-4 rounded-full overflow-hidden">
-              <div class="h-full bg-gold transition-all duration-1000 rounded-full" style="width: 60%"></div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white dark:bg-[#111111] p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5 relative group hover:border-gold transition-colors">
+              <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-t-2xl"></div>
+              <p class="text-[10px] text-gray-500 dark:text-gray-400 font-[600] uppercase tracking-widest mb-2">Wellness Budget</p>
+              <h3 class="font-display text-3xl font-[600] text-dark-gray dark:text-white">$1,250</h3>
+              <div class="mt-4 flex items-center text-[10px] font-[600] tracking-wider uppercase">
+                <span class="text-gray-400">Total: <span class="text-dark-gray dark:text-white">$3,000</span></span>
+              </div>
             </div>
-            <div class="flex justify-between text-[9px] sm:text-[10px] uppercase tracking-widest font-[600] text-gray-400">
-              <span class="text-gold">Evaluation</span>
-              <span class="text-gold">Deep Tissue</span>
-              <span class="text-dark-gray dark:text-white">Myofascial</span>
-              <span class="hidden sm:inline">Re-Assessment</span>
-              <span>Maintenance</span>
+
+            <div class="bg-white dark:bg-[#111111] p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5 relative group hover:border-gold transition-colors">
+              <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-t-2xl"></div>
+              <p class="text-[10px] text-gray-500 dark:text-gray-400 font-[600] uppercase tracking-widest mb-2">Balance Due</p>
+              <h3 class="font-display text-3xl font-[600] text-dark-gray dark:text-white">$450</h3>
+              <div class="mt-4 flex items-center text-[10px] font-[600] tracking-wider uppercase">
+                <span class="text-gold">Due in 5 Days</span>
+              </div>
+            </div>
+
+            <div class="bg-white dark:bg-[#111111] p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5 relative group hover:border-gold transition-colors">
+              <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-t-2xl"></div>
+              <p class="text-[10px] text-gray-500 dark:text-gray-400 font-[600] uppercase tracking-widest mb-2">New Care Plans</p>
+              <h3 class="font-display text-3xl font-[600] text-dark-gray dark:text-white">2</h3>
+              <div class="mt-4 flex items-center text-[10px] font-[600] tracking-wider uppercase">
+                <span class="text-gold">Ready for Review</span>
+              </div>
+            </div>
+
+            <div class="bg-white dark:bg-[#111111] p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5 relative group hover:border-gold transition-colors">
+              <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-t-2xl"></div>
+              <p class="text-[10px] text-gray-500 dark:text-gray-400 font-[600] uppercase tracking-widest mb-2">Next Session</p>
+              <h3 class="font-display text-xl font-[600] text-dark-gray dark:text-white uppercase truncate">Deep Tissue</h3>
+              <div class="mt-4 flex items-center text-[10px] font-[600] tracking-wider uppercase">
+                <span class="text-gray-400">Oct 28th</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          
-          <div class="bg-white dark:bg-[#111111] p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5 relative group hover:border-gold transition-colors">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-t-2xl"></div>
-            <p class="text-[10px] text-gray-500 dark:text-gray-400 font-[600] uppercase tracking-widest mb-2">Wellness Budget</p>
-            <h3 class="font-display text-3xl font-[600] text-dark-gray dark:text-white">$1,250</h3>
-            <div class="mt-4 flex items-center text-[10px] font-[600] tracking-wider uppercase">
-              <span class="text-gray-400">Total: <span class="text-dark-gray dark:text-white">$3,000</span></span>
-            </div>
-          </div>
-
-          <div class="bg-white dark:bg-[#111111] p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5 relative group hover:border-gold transition-colors">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-t-2xl"></div>
-            <p class="text-[10px] text-gray-500 dark:text-gray-400 font-[600] uppercase tracking-widest mb-2">Balance Due</p>
-            <h3 class="font-display text-3xl font-[600] text-dark-gray dark:text-white">$450</h3>
-            <div class="mt-4 flex items-center text-[10px] font-[600] tracking-wider uppercase">
-              <span class="text-gold">Due in 5 Days</span>
-            </div>
-          </div>
-
-          <div class="bg-white dark:bg-[#111111] p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5 relative group hover:border-gold transition-colors">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-t-2xl"></div>
-            <p class="text-[10px] text-gray-500 dark:text-gray-400 font-[600] uppercase tracking-widest mb-2">New Care Plans</p>
-            <h3 class="font-display text-3xl font-[600] text-dark-gray dark:text-white">2</h3>
-            <div class="mt-4 flex items-center text-[10px] font-[600] tracking-wider uppercase">
-              <span class="text-gold">Ready for Review</span>
-            </div>
-          </div>
-
-          <div class="bg-white dark:bg-[#111111] p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5 relative group hover:border-gold transition-colors">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-t-2xl"></div>
-            <p class="text-[10px] text-gray-500 dark:text-gray-400 font-[600] uppercase tracking-widest mb-2">Next Session</p>
-            <h3 class="font-display text-xl font-[600] text-dark-gray dark:text-white uppercase truncate">Deep Tissue</h3>
-            <div class="mt-4 flex items-center text-[10px] font-[600] tracking-wider uppercase">
-              <span class="text-gray-400">Oct 28th</span>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-8">
-          
-          <div class="bg-white dark:bg-[#111111] p-6 rounded-3xl shadow-sm border border-gray-100 dark:border-white/5">
+        <div id="section-analytics" class="content-section fade-in hidden">
+          <div class="bg-white dark:bg-[#111111] p-6 rounded-3xl shadow-sm border border-gray-100 dark:border-white/5 max-w-3xl mb-8">
             <h3 class="text-xs font-[600] uppercase tracking-widest text-dark-gray dark:text-white mb-6">Treatment Distribution</h3>
             <div class="relative h-64 w-full flex justify-center">
               <canvas id="budgetChart"></canvas>
             </div>
           </div>
+        </div>
 
-          <div class="bg-white dark:bg-[#111111] p-6 rounded-3xl shadow-sm border border-gray-100 dark:border-white/5 flex flex-col">
+        <div id="section-updates" class="content-section fade-in hidden">
+          <div class="bg-white dark:bg-[#111111] p-6 rounded-3xl shadow-sm border border-gray-100 dark:border-white/5 flex flex-col max-w-3xl mb-8">
             <h3 class="text-xs font-[600] uppercase tracking-widest text-dark-gray dark:text-white mb-6">Therapist Updates</h3>
             
             <div class="flex-1 overflow-y-auto ltr:pr-2 rtl:pl-2 space-y-6 scrollbar-thin">
@@ -303,63 +314,81 @@
           </div>
         </div>
 
-        <div class="bg-white dark:bg-[#111111] border border-gray-100 dark:border-white/5 rounded-3xl shadow-sm overflow-hidden mb-8">
-          <div class="p-6 border-b border-gray-100 dark:border-white/5 flex items-center justify-between">
-            <h3 class="text-xs font-[600] uppercase tracking-widest text-dark-gray dark:text-white">Recent Invoices</h3>
-            <button class="text-[10px] font-[600] uppercase tracking-widest text-gold hover:text-dark-gray dark:hover:text-white transition-colors">View All</button>
+        <div id="section-invoices" class="content-section fade-in hidden">
+          <div class="bg-white dark:bg-[#111111] border border-gray-100 dark:border-white/5 rounded-3xl shadow-sm overflow-hidden mb-8">
+            <div class="p-6 border-b border-gray-100 dark:border-white/5 flex items-center justify-between">
+              <h3 class="text-xs font-[600] uppercase tracking-widest text-dark-gray dark:text-white">Recent Invoices</h3>
+              <button class="text-[10px] font-[600] uppercase tracking-widest text-gold hover:text-dark-gray dark:hover:text-white transition-colors">View All</button>
+            </div>
+            
+            <div class="overflow-x-auto">
+              <table class="w-full text-left rtl:text-right whitespace-nowrap">
+                <thead>
+                  <tr class="bg-gray-50 dark:bg-[#1A1A1A] text-gray-500 dark:text-gray-400 text-[10px] uppercase tracking-widest border-b border-gray-100 dark:border-white/5">
+                    <th class="px-6 py-4 font-[600]">Invoice ID</th>
+                    <th class="px-6 py-4 font-[600]">Description</th>
+                    <th class="px-6 py-4 font-[600]">Date</th>
+                    <th class="px-6 py-4 font-[600]">Amount</th>
+                    <th class="px-6 py-4 font-[600]">Status</th>
+                    <th class="px-6 py-4 font-[600] ltr:text-right rtl:text-left">Action</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100 dark:divide-white/5 text-sm">
+                  <tr class="hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group">
+                    <td class="px-6 py-5 text-dark-gray dark:text-white font-mono text-xs">#INV-042</td>
+                    <td class="px-6 py-5 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">Recovery Pro Monthly</td>
+                    <td class="px-6 py-5 text-gray-500 dark:text-gray-400 text-xs tracking-wider">OCT 10, 2026</td>
+                    <td class="px-6 py-5 font-[600] text-dark-gray dark:text-white">$159.00</td>
+                    <td class="px-6 py-5">
+                      <span class="text-[10px] font-[600] uppercase tracking-widest text-gold">Paid</span>
+                    </td>
+                    <td class="px-6 py-5 ltr:text-right rtl:text-left">
+                      <button class="text-gray-400 hover:text-gold transition-colors text-xs uppercase tracking-widest font-[600]">PDF <i class="fas fa-download ml-1"></i></button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group">
+                    <td class="px-6 py-5 text-dark-gray dark:text-white font-mono text-xs">#INV-055</td>
+                    <td class="px-6 py-5 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">Sports Recovery Session</td>
+                    <td class="px-6 py-5 text-gray-500 dark:text-gray-400 text-xs tracking-wider">OCT 22, 2026</td>
+                    <td class="px-6 py-5 font-[600] text-dark-gray dark:text-white">$130.00</td>
+                    <td class="px-6 py-5">
+                      <span class="text-[10px] font-[600] uppercase tracking-widest text-gold">Paid</span>
+                    </td>
+                    <td class="px-6 py-5 ltr:text-right rtl:text-left">
+                      <button class="text-gray-400 hover:text-gold transition-colors text-xs uppercase tracking-widest font-[600]">PDF <i class="fas fa-download ml-1"></i></button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group">
+                    <td class="px-6 py-5 text-dark-gray dark:text-white font-mono text-xs">#INV-061</td>
+                    <td class="px-6 py-5 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">Add-on: Cupping Therapy</td>
+                    <td class="px-6 py-5 text-gray-500 dark:text-gray-400 text-xs tracking-wider">OCT 26, 2026</td>
+                    <td class="px-6 py-5 font-[600] text-dark-gray dark:text-white">$25.00</td>
+                    <td class="px-6 py-5">
+                      <span class="text-[10px] font-[600] uppercase tracking-widest text-gold">Pending</span>
+                    </td>
+                    <td class="px-6 py-5 ltr:text-right rtl:text-left">
+                      <button class="text-gray-400 hover:text-gold transition-colors text-xs uppercase tracking-widest font-[600]">Pay <i class="fas fa-arrow-right ml-1"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-          
-          <div class="overflow-x-auto">
-            <table class="w-full text-left rtl:text-right whitespace-nowrap">
-              <thead>
-                <tr class="bg-gray-50 dark:bg-[#1A1A1A] text-gray-500 dark:text-gray-400 text-[10px] uppercase tracking-widest border-b border-gray-100 dark:border-white/5">
-                  <th class="px-6 py-4 font-[600]">Invoice ID</th>
-                  <th class="px-6 py-4 font-[600]">Description</th>
-                  <th class="px-6 py-4 font-[600]">Date</th>
-                  <th class="px-6 py-4 font-[600]">Amount</th>
-                  <th class="px-6 py-4 font-[600]">Status</th>
-                  <th class="px-6 py-4 font-[600] ltr:text-right rtl:text-left">Action</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-gray-100 dark:divide-white/5 text-sm">
-                <tr class="hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group">
-                  <td class="px-6 py-5 text-dark-gray dark:text-white font-mono text-xs">#INV-042</td>
-                  <td class="px-6 py-5 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">Recovery Pro Monthly</td>
-                  <td class="px-6 py-5 text-gray-500 dark:text-gray-400 text-xs tracking-wider">OCT 10, 2026</td>
-                  <td class="px-6 py-5 font-[600] text-dark-gray dark:text-white">$159.00</td>
-                  <td class="px-6 py-5">
-                    <span class="text-[10px] font-[600] uppercase tracking-widest text-gold">Paid</span>
-                  </td>
-                  <td class="px-6 py-5 ltr:text-right rtl:text-left">
-                    <button class="text-gray-400 hover:text-gold transition-colors text-xs uppercase tracking-widest font-[600]">PDF <i class="fas fa-download ml-1"></i></button>
-                  </td>
-                </tr>
-                <tr class="hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group">
-                  <td class="px-6 py-5 text-dark-gray dark:text-white font-mono text-xs">#INV-055</td>
-                  <td class="px-6 py-5 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">Sports Recovery Session</td>
-                  <td class="px-6 py-5 text-gray-500 dark:text-gray-400 text-xs tracking-wider">OCT 22, 2026</td>
-                  <td class="px-6 py-5 font-[600] text-dark-gray dark:text-white">$130.00</td>
-                  <td class="px-6 py-5">
-                    <span class="text-[10px] font-[600] uppercase tracking-widest text-gold">Paid</span>
-                  </td>
-                  <td class="px-6 py-5 ltr:text-right rtl:text-left">
-                    <button class="text-gray-400 hover:text-gold transition-colors text-xs uppercase tracking-widest font-[600]">PDF <i class="fas fa-download ml-1"></i></button>
-                  </td>
-                </tr>
-                <tr class="hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group">
-                  <td class="px-6 py-5 text-dark-gray dark:text-white font-mono text-xs">#INV-061</td>
-                  <td class="px-6 py-5 text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wider">Add-on: Cupping Therapy</td>
-                  <td class="px-6 py-5 text-gray-500 dark:text-gray-400 text-xs tracking-wider">OCT 26, 2026</td>
-                  <td class="px-6 py-5 font-[600] text-dark-gray dark:text-white">$25.00</td>
-                  <td class="px-6 py-5">
-                    <span class="text-[10px] font-[600] uppercase tracking-widest text-gold">Pending</span>
-                  </td>
-                  <td class="px-6 py-5 ltr:text-right rtl:text-left">
-                    <button class="text-gray-400 hover:text-gold transition-colors text-xs uppercase tracking-widest font-[600]">Pay <i class="fas fa-arrow-right ml-1"></i></button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+        </div>
+
+        <div id="section-wellness" class="content-section fade-in hidden">
+          <div class="bg-white dark:bg-[#111111] p-10 rounded-3xl shadow-sm border border-gray-100 dark:border-white/5 text-center">
+            <i class="fas fa-file-medical text-4xl text-gray-300 dark:text-gray-600 mb-4"></i>
+            <h3 class="text-sm font-[600] uppercase tracking-widest text-dark-gray dark:text-white mb-2">My Wellness Plan</h3>
+            <p class="text-xs text-gray-500 dark:text-gray-400">View your active mobility exercises and post-session guidelines here.</p>
+          </div>
+        </div>
+
+        <div id="section-appointments" class="content-section fade-in hidden">
+          <div class="bg-white dark:bg-[#111111] p-10 rounded-3xl shadow-sm border border-gray-100 dark:border-white/5 text-center">
+            <i class="fas fa-calendar-check text-4xl text-gray-300 dark:text-gray-600 mb-4"></i>
+            <h3 class="text-sm font-[600] uppercase tracking-widest text-dark-gray dark:text-white mb-2">Manage Appointments</h3>
+            <p class="text-xs text-gray-500 dark:text-gray-400">Schedule, reschedule, or review your upcoming therapy sessions.</p>
           </div>
         </div>
 
@@ -368,6 +397,54 @@
   </div>
 
   <script>
+    // --- Section Tab Filtering Logic ---
+    const navBtns = document.querySelectorAll('.nav-btn');
+    const contentSections = document.querySelectorAll('.content-section');
+    const headerTitle = document.getElementById('header-title');
+
+    navBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Reset all buttons to inactive state
+        navBtns.forEach(b => {
+          b.className = 'nav-btn w-full flex items-center space-x-4 rtl:space-x-reverse px-8 py-3 text-gray-300 dark:text-gray-400 border-l-2 border-transparent hover:border-gold hover:text-gold hover:bg-white/5 transition-all duration-300 group';
+        });
+
+        // Set clicked button to active state
+        btn.className = 'nav-btn w-full flex items-center space-x-4 rtl:space-x-reverse px-8 py-3 bg-white/5 border-l-2 border-gold text-gold transition-all duration-300 group';
+
+        // Hide all sections
+        contentSections.forEach(section => {
+          section.classList.add('hidden');
+          section.classList.remove('block');
+        });
+
+        // Show target section
+        const targetId = btn.getAttribute('data-target');
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+          targetSection.classList.remove('hidden');
+          targetSection.classList.add('block');
+          
+          // Update header title based on span text
+          const btnText = btn.querySelector('span').textContent;
+          headerTitle.textContent = `Dashboard ${btnText}`;
+
+          // Trigger resize event to ensure Chart.js renders correctly if "Analytics" is opened
+          if(targetId === 'section-analytics') {
+             window.dispatchEvent(new Event('resize'));
+          }
+        }
+
+        // Auto-close sidebar on mobile after clicking
+        if (window.innerWidth < 1024) {
+          sidebar.classList.add('sidebar-closed');
+          overlay.classList.add('opacity-0');
+          setTimeout(() => overlay.classList.add('hidden'), 300);
+        }
+      });
+    });
+
     // --- RTL/LTR Toggle Logic ---
     const rtlToggle = document.getElementById('rtl-toggle');
     const rtlText = document.getElementById('rtl-text');
